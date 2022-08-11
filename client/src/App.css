@@ -28,6 +28,13 @@
   color: #61dafb;
 }
 
+.container-profile {
+  margin-top: 20px;
+}
+
+.highlight-stack {
+  margin-top: 20px;
+}
 
 @keyframes App-logo-spin {
   from {
