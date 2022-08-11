@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 
-const { languageSchema } = require('Language')
+const { languageSchema } = require('Language');
+const { frameworkSchema } = require('Framework');
+const { platformSchema } = require('Platform');
+const { knowledgeSchema } = require('Knowledge');
 
 const userSchema = mongoose.Schema({
     firstName: {
@@ -39,9 +42,10 @@ const userSchema = mongoose.Schema({
         required: true,
     },
     language: [languageSchema],
-
+    framework: [frameworkSchema],
+    platform: [platformSchema],
+    knowledge: [knowledgeSchema],
 });
-
 
 const User = mongoose.model('User', userSchema);
 
