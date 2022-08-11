@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const connectionURI = "mongodb://localhost:27017";
+const connectionURI = "mongodb://localhost:27017/dev-connect";
 
 const connection = async () => {
     await mongoose.connect(connectionURI);

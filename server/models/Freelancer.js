@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
-const { languageSchema } = require('Language');
-const { frameworkSchema } = require('Framework');
-const { platformSchema } = require('Platform');
-const { knowledgeSchema } = require('Knowledge');
+const { languageSchema } = require('./Languages');
+const { frameworkSchema } = require('./Frameworks');
+const { platformSchema } = require('./Platforms');
+const { knowledgeSchema } = require('./Knowledge');
 
-const userSchema = mongoose.Schema({
+const freelancerSchema = mongoose.Schema({
     firstName: {
         type: String,
         required: true,
@@ -13,7 +13,7 @@ const userSchema = mongoose.Schema({
         maxLength: [20, "the maximum length is 20 characters!"],
         trim: true,
         validate: {
-            validator: (v) => /^[a-zA-Z0-9](_(?!(\.|_))|\.(?!(_|\.))|[a-zA-Z0-9]){6,18}[a-zA-Z0-9]$/.test(v),
+            validator: (v) => /^[a-zA-Z]{2,20}$/.test(v),
         },
     },
     lastName: {
@@ -41,12 +41,12 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    language: [languageSchema],
-    framework: [frameworkSchema],
-    platform: [platformSchema],
+    languages: [languageSchema],
+    frameworks: [frameworkSchema],
+    platforms: [platformSchema],
     knowledge: [knowledgeSchema],
 });
 
-const User = mongoose.model('User', userSchema);
+const Freelancer = mongoose.model('Freelancer', freelancerSchema);
 
-module.exports = User;
+module.exports = Freelancer;
