@@ -1,7 +1,6 @@
 const express = require('express');
 const connection = require('./config/connection');
 
-
 const app = express();
 const port = process.env.PORT || 3001;
 
