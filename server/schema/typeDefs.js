@@ -23,6 +23,7 @@ const typeDefs = gql`
     # }
     type Query {
         language: [Language],
+        framework: [Framework],
     }
 `;
 
