@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
-const languageSchema = mongoose.Schema({
-    language: {
+const frameworkSchema = mongoose.Schema({
+    framework: {
         type: String,
         required: true,
     }
 });
 
-const Language = mongoose.model('Language', languageSchema);
+const Framework = mongoose.model('Framework', frameworkSchema);
 
-module.exports = { Language, languageSchema };
+module.exports = { Framework, frameworkSchema };
