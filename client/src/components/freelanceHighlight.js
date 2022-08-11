@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
+import MainNav from './navBar';
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -17,6 +18,8 @@ const Item = styled(Paper)(({ theme }) => ({
 function FreelanceHighlight () {
     return (
         <Container className='container-profile'>
+            <MainNav />
+            <br/>
             <Grid container spacing={ 1 }>
                 <Grid className='avatar' xs={ 4 }><Avatar sx={ { bgcolor: deepOrange[500], width: 100, height: 100 } }>N</Avatar></Grid>
                 <Grid xs={ 8 }>
