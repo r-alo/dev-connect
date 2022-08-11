@@ -1,11 +1,11 @@
-import { Grid, Container, Avatar, Card, CardContent, CardActions, Button, Typography } from '@mui/material';
+import { Grid, Container, Avatar, Card, CardContent, Typography, TableContainer, Table, TableHead, TableRow, TableCell, TableBody } from '@mui/material';
 import { deepOrange } from '@mui/material/colors';
 
 function FreelanceProfile() {
     return (
-        <Container>
-            <Grid container spacing={1}>
-                <Grid className='avatar' xs={4}><Avatar sx={{ bgcolor: deepOrange[500], width: 100, height: 100 }}>N</Avatar></Grid>
+        <Container className='container-profile'>
+            <Grid className='grid-profile' container spacing={1}>
+                <Grid xs={4}><Avatar sx={{ bgcolor: deepOrange[500], width: 100, height: 100 }}>N</Avatar></Grid>
                 <Grid xs={8}>
                     <Card sx={{ minWidth: 275 }}>
                         <CardContent>
@@ -24,12 +24,31 @@ function FreelanceProfile() {
                                 {'"a benevolent smile"'}
                             </Typography>
                         </CardContent>
-                        <CardActions>
-                            <Button size="small">Learn More</Button>
-                        </CardActions>
                     </Card>
                 </Grid>
             </Grid>
+            <TableContainer >
+                <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>Dessert (100g serving)</TableCell>
+                            <TableCell align="right">Calories</TableCell>
+                            <TableCell align="right">Fat&nbsp;(g)</TableCell>
+                            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
+                            <TableCell align="right">Protein&nbsp;(g)</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        <TableRow>
+                            <TableCell>Dessert (100g serving)</TableCell>
+                            <TableCell align="right">Calories</TableCell>
+                            <TableCell align="right">Fat&nbsp;(g)</TableCell>
+                            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
+                            <TableCell align="right">Protein&nbsp;(g)</TableCell>
+                        </TableRow>
+                    </TableBody>
+                </Table>
+            </TableContainer>
         </Container>
     )
 }
