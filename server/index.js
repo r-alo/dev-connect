@@ -18,8 +18,11 @@ app.use(express.json());
 
 const main = async () => {
     await connection();
+    await server.start();
+    server.applyMiddleware({ app });
     app.listen(port, () => {
         console.log(`Express web server running on ${port}`);
+        console.log(`Use GraphQL at http://localhost:${port}${server.graphqlPath}`);
     });
 };
 

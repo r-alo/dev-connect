@@ -6,9 +6,21 @@ const resolvers = {
             return await Language.find({});
         },
         framework: async () => {
-            await Framework.find({});
+            return await Framework.find({});
+        },
+        platform: async () => {
+            return await Platform.find({});
+        },
+        freelancer: async () => {
+            return await Freelancer.find({});
+        }
+    },
+
+    Mutation: {
+        addLanguageTypeScript: async () => {
+            return await Language.create({language: 'TypeScript'})
         }
     }
 };
 
-module.export = resolvers;
+module.exports = resolvers;
