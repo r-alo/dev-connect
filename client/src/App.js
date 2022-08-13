@@ -9,7 +9,7 @@ import FreelanceProfile from './components/freelanceProfile';
 function App() {
   return (
     <div className="App">
-      <FreelanceProfile/>
+      <RecruiterProfile/>
     </div>
   );
 }

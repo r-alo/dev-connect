@@ -32,6 +32,20 @@
   margin-top: 20px;
 }
 
+.recruiter-filter-container {
+  margin: 3% auto 0% auto;
+}
+
+.recruiter-filter-container div.container{
+  border: 1px solid #e1e1e1;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.table-head {
+  border-bottom: 2px solid rgba(224, 224, 224, 1);
+}
+
 .grid-profile {
   align-items: center !important;
 }
