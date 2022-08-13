@@ -25,6 +25,12 @@ export default function TemplateForm() {
     });
   };
 
+const languages = ["HTML", "CSS", "Javascript", "TypeScript", "My SQL", "MongoDB", "SASS"];
+const frameworks = ["React.js", "Bootstrap", "jQuery", "Express.js", "Sequelize.js", "Mongoose.js", "Inquirer", "Tailwind", "Jest"];
+const platforms = ["Heroku", "GitHub", "GitLab", "Node.js", "StackOverFlow", "Postman"];
+const additionalKn = ["MVS", "Object-Oriented-Programming (OOP)", "Application Programming Interfaces (API)", "TDD", "Progressive Web Applications (PWA)", "Git", "Visual Studio Code"];
+
+
   const { html, css, javascript } = state;
   return (
     <Box
@@ -75,32 +81,66 @@ export default function TemplateForm() {
       </div>
 
       <FormControl sx={ { m: 3 } } component="fieldset" variant="standard">
-        <FormLabel component="legend">Assign responsibility</FormLabel>
+        <FormLabel component="legend">Languages</FormLabel>
         <FormGroup>
-          <FormControlLabel
-            control={
-              <Checkbox checked={ html } onChange={ handleChange } name="html" />
-            }
-            label="HTML"
-          />
-          <FormControlLabel
-            control={
-              <Checkbox checked={ css } onChange={ handleChange } name="css" />
-            }
-            label="CSS"
-          />
-          <FormControlLabel
-            control={
-              <Checkbox
-                checked={ javascript }
-                onChange={ handleChange }
-                name="javascript"
-              />
-            }
-            label="JavaScript"
-          />
+        {
+        languages.map(item => (<FormControlLabel
+          control={
+            <Checkbox checked={ item } onChange={ handleChange } name={item} />
+          }
+          label={item}
+        />))
+      }
+            
         </FormGroup>
       </FormControl>
+
+      <FormControl sx={ { m: 3 } } component="fieldset" variant="standard">
+        <FormLabel component="legend">Libraries / Frameworks</FormLabel>
+        <FormGroup>
+        {
+        frameworks.map(item => (<FormControlLabel
+          control={
+            <Checkbox checked={ item } onChange={ handleChange } name={item} />
+          }
+          label={item}
+        />))
+      }
+            
+        </FormGroup>
+      </FormControl>
+
+      <FormControl sx={ { m: 3 } } component="fieldset" variant="standard">
+        <FormLabel component="legend">Platforms</FormLabel>
+        <FormGroup>
+        {
+        platforms.map(item => (<FormControlLabel
+          control={
+            <Checkbox checked={ item } onChange={ handleChange } name={item} />
+          }
+          label={item}
+        />))
+      }
+            
+        </FormGroup>
+      </FormControl>
+      
+
+      <FormControl sx={ { m: 3 } } component="fieldset" variant="standard">
+        <FormLabel component="legend">Additional Knowledge</FormLabel>
+        <FormGroup>
+        {
+        additionalKn.map(item => (<FormControlLabel
+          control={
+            <Checkbox checked={ item } onChange={ handleChange } name={item} />
+          }
+          label={item}
+        />))
+      }
+            
+        </FormGroup>
+      </FormControl>
+      
     </Box>
   );
 }
