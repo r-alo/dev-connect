@@ -1,5 +1,6 @@
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
-import { Container, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, Stack, TextField} from '@mui/material';
+import { Container, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, Stack, TextField, Avatar, Button } from '@mui/material';
+import { deepOrange } from '@mui/material/colors';
 
 
 const filterOptions = createFilterOptions({
@@ -63,44 +64,41 @@ export default function RecruiterProfile() {
                 </div>
             </Stack>
             <TableContainer >
-                <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                <Table >
                     <TableHead className='table-head'>
                         <TableRow>
-                            <TableCell>Dessert (100g serving)</TableCell>
-                            <TableCell align="right">Calories</TableCell>
-                            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-                            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-                            <TableCell align="right">Protein&nbsp;(g)</TableCell>
+                            <TableCell>Avatar</TableCell>
+                            <TableCell align="center">Description</TableCell>
+                            <TableCell align="right">Actions</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         <TableRow>
-                            <TableCell>Dessert (100g serving)</TableCell>
-                            <TableCell align="right">Calories</TableCell>
-                            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-                            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-                            <TableCell align="right">Protein&nbsp;(g)</TableCell>
+                            <TableCell><Avatar sx={{ bgcolor: deepOrange[500] }}>N</Avatar></TableCell>
+                            <TableCell align="left">
+                                <p><strong>Name:</strong>dev name</p>
+                                <p><strong>Languages:</strong>PHP, JS, HTML</p>
+                                <p><strong>Experience:</strong>+3 years</p>
+                            </TableCell>
+                            <TableCell align="right"><Button variant="contained">Preview</Button></TableCell>
                         </TableRow>
                         <TableRow>
-                            <TableCell>Dessert (100g serving)</TableCell>
-                            <TableCell align="right">Calories</TableCell>
-                            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-                            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-                            <TableCell align="right">Protein&nbsp;(g)</TableCell>
+                            <TableCell><Avatar sx={{ bgcolor: deepOrange[500] }}>N</Avatar></TableCell>
+                            <TableCell align="left">
+                                <p><strong>Name:</strong>dev name</p>
+                                <p><strong>Languages:</strong>PHP, JS, HTML</p>
+                                <p><strong>Experience:</strong>+3 years</p>
+                            </TableCell>
+                            <TableCell align="right"><Button variant="contained">Preview</Button></TableCell>
                         </TableRow>
                         <TableRow>
-                            <TableCell>Dessert (100g serving)</TableCell>
-                            <TableCell align="right">Calories</TableCell>
-                            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-                            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-                            <TableCell align="right">Protein&nbsp;(g)</TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell>Dessert (100g serving)</TableCell>
-                            <TableCell align="right">Calories</TableCell>
-                            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-                            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-                            <TableCell align="right">Protein&nbsp;(g)</TableCell>
+                            <TableCell><Avatar sx={{ bgcolor: deepOrange[500] }}>N</Avatar></TableCell>
+                            <TableCell align="left">
+                                <p><strong>Name:</strong>dev name</p>
+                                <p><strong>Languages:</strong>PHP, JS, HTML</p>
+                                <p><strong>Experience:</strong>+3 years</p>
+                            </TableCell>
+                            <TableCell align="right"><Button variant="contained">Preview</Button></TableCell>
                         </TableRow>
                     </TableBody>
                 </Table>
