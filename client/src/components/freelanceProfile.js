@@ -83,10 +83,10 @@ function FreelanceProfile() {
                     <Card sx={{ minWidth: 275 }}>
                         <CardContent>
                             <h1>Developer profile</h1>
-                            <p><strong>Name:</strong>dev name</p>
-                            <p><strong>Mail:</strong>devmail@mail.com</p>
-                            <p><strong>Phone:</strong>55 5555 5555</p>
-                            <p><strong>Github:</strong>DevProfile</p>
+                            <p><strong>Name: </strong>dev name</p>
+                            <p><strong>Mail: </strong>devmail@mail.com</p>
+                            <p><strong>Phone: </strong>55 5555 5555</p>
+                            <p><strong>Github: </strong>DevProfile</p>
                         </CardContent>
                     </Card>
                 </Grid>
