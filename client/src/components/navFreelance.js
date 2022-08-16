@@ -15,9 +15,9 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
 const drawerWidth = 240;
-const navItems = ['Home', 'Sign In', 'Sign Up'];
+const navItems = ['Home', 'Sign Out'];
 
-function MainNav (props) {
+function NavFree (props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -61,7 +61,7 @@ function MainNav (props) {
                     <Typography
                         variant="h6"
                         component="div"
-                        sx={ { flexGrow: 1, display: { xs: 'block'} } }
+                        sx={ { flexGrow: 1, display: { xs: 'block' } } }
                     >
                         DevConnect
                     </Typography>
@@ -95,4 +95,4 @@ function MainNav (props) {
     );
 }
 
-export default MainNav;
+export default NavFree;
