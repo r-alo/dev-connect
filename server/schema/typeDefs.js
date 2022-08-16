@@ -22,24 +22,36 @@ const typeDefs = gql`
     }
 
     type Freelancer {
+        _id: ID!
         firstName: String!
         lastName: String!
         email: String!
         phone: String!
         github: String!
+        email:String!
         languages: [Language]
+        password: String
     }
+    type Auth {
+        token: ID!
+        freelancer: Freelancer
+      }
 
     type Query {
         language: [Language]
         framework: [Framework]
         platform: [Platform]
-        freelancer: [Freelancer]
+        freelancers: [Freelancer]
+        freelancer(profileId: ID!): Freelancer
+
     }
 
     type Mutation {
         addLanguageTypeScript: Language
+        addProfile(firstName: String!, lastName: String!, phone: String!, github: String!, company: String!, email: String!, password: String!, language: String!, framework: String!, platform: String!): Freelancer
+        login(email: String!, password: String!): Auth
     }
 `;
 
 module.exports = typeDefs;
+
