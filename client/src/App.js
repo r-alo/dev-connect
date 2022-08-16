@@ -8,7 +8,8 @@ import FreelanceProfile from './components/freelanceProfile';
 function App() {
   return (
     <div className="App">
-      <RecruiterProfile/>
+      <FreelanceProfile/>
+      
     </div>
   );
 }

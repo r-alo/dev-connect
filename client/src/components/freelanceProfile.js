@@ -82,7 +82,7 @@ function FreelanceProfile() {
                 <Grid xs={8}>
                     <Card sx={{ minWidth: 275 }}>
                         <CardContent>
-                            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                            {/* <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                                 Word of the Day
                             </Typography>
                             <Typography variant="h5" component="div">
@@ -95,7 +95,12 @@ function FreelanceProfile() {
                                 well meaning and kindly.
                                 <br />
                                 {'"a benevolent smile"'}
-                            </Typography>
+                            </Typography> */}
+                            <h1>Developer profile</h1>
+                            <p><strong>Name:</strong>dev name</p>
+                            <p><strong>Mail:</strong>devmail@mail.com</p>
+                            <p><strong>Phone:</strong>55 5555 5555</p>
+                            <p><strong>Github:</strong>DevProfile</p>
                         </CardContent>
                     </Card>
                 </Grid>
@@ -104,20 +109,15 @@ function FreelanceProfile() {
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell>Dessert (100g serving)</TableCell>
-                            <TableCell align="right">Calories</TableCell>
-                            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-                            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-                            <TableCell align="right">Protein&nbsp;(g)</TableCell>
+                            <TableCell>Languages</TableCell>
+                            <TableCell align="right">Frameworks</TableCell>
+                            <TableCell align="right">Platforms</TableCell>
+                            <TableCell align="right">Aditional</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         <TableRow>
-                            <TableCell>Dessert (100g serving)</TableCell>
-                            <TableCell align="right">Calories</TableCell>
-                            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-                            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-                            <TableCell align="right">Protein&nbsp;(g)</TableCell>
+
                         </TableRow>
                     </TableBody>
                 </Table>
