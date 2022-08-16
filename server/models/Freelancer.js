@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require ('bcryptjs')
 
 const { languageSchema } = require('./Languages');
 const { frameworkSchema } = require('./Frameworks');
@@ -46,6 +47,19 @@ const freelancerSchema = mongoose.Schema({
     platforms: [platformSchema],
     knowledge: [knowledgeSchema],
 });
+
+freelancerSchema.pre('save', async function (next) {
+    if (this.isNew || this.isModified('password')) {
+      this.password = await bcrypt.hash(this.password, 10);
+      console.log(this.password)
+    }
+  
+    next();
+  });
+  
+freelancerSchema.methods.isCorrectPassword = async function (password) {
+    return bcrypt.compare(password, this.password);
+  };
 
 const Freelancer = mongoose.model('Freelancer', freelancerSchema);
 
