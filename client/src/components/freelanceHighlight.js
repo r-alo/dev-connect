@@ -18,8 +18,8 @@ const Item = styled(Paper)(({ theme }) => ({
 function FreelanceHighlight () {
     return (
         <Container className='container-profile'>
-            <MainNav />
-            <br/>
+            
+
             <Grid container spacing={ 1 }>
                 <Grid className='avatar' xs={ 4 }><Avatar sx={ { bgcolor: deepOrange[500], width: 100, height: 100 } }>N</Avatar></Grid>
                 <Grid xs={ 8 }>
