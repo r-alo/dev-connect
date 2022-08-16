@@ -1,27 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
 import React from 'react';
-import FreelanceHighlight from './components/freelanceHighlight';
 import TemplateForm from './components/templateForm';
-import RecruiterProfile from './components/recruiterProfile';
-import FreelanceProfile from './components/freelanceProfile';
-import MainNav from './components/navBar';
-import Login from './components/login';
 import NavRecruit from './components/navRecruit';
+import NavBar from './components/navBar';
+import FreelanceProfile from './components/freelanceProfile';
 
+import { ApolloClient, InMemoryCache, ApolloProvider, HttpLink, ApolloLink, concat } from '@apollo/client';
 
+// const httpLink = new HttpLink({ uri: 'http://localhost:3001/graphql'});
+// const link = new ApolloLink((operation, forward) => {
+//   return forward(operation)
+// });
+
+const client = new ApolloClient({
+  uri: "http://localhost:3001/graphql",
+  // link: concat(link, httpLink),
+  cache: new InMemoryCache(),
+});
 
 function App() {
+  // const { loading, error, data } = useQuery(GET_FREELANCERS);
+  // console.log(data);
   return (
-
-    <div className="App">
-      <header><NavRecruit/></header>
-      <br/>
-      <br />
-      <br />
-      <TemplateForm/>
-      
-    </div>
+    <ApolloProvider client={client}>
+      <div className="App">
+        <FreelanceProfile />
+      </div>
+    </ApolloProvider>
   );
 }
 

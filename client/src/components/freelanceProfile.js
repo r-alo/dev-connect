@@ -1,6 +1,11 @@
 import { Grid, Container, Avatar, Card, CardContent, Typography, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, ImageList, ImageListItem, ListSubheader, ImageListItemBar, IconButton } from '@mui/material';
 import { deepOrange } from '@mui/material/colors';
 
+// Apollo Client
+import { useQuery } from '@apollo/client';
+import { GET_FREELANCERS } from '../utils/queries';
+
+
 function FreelanceProfile() {
     const itemData = [
         {
@@ -75,6 +80,12 @@ function FreelanceProfile() {
             cols: 2,
         },
     ];
+
+    // Get data from GraphQL
+    const { loading, error, data } = useQuery(GET_FREELANCERS);
+    if (loading) return (<></>);
+    console.log(data);
+
     return (
         <Container className='container-profile'>
             <Grid className='grid-profile' container spacing={1}>
@@ -83,10 +94,10 @@ function FreelanceProfile() {
                     <Card sx={{ minWidth: 275 }}>
                         <CardContent>
                             <h1>Developer profile</h1>
-                            <p><strong>Name: </strong>dev name</p>
-                            <p><strong>Mail: </strong>devmail@mail.com</p>
-                            <p><strong>Phone: </strong>55 5555 5555</p>
-                            <p><strong>Github: </strong>DevProfile</p>
+                            <p><strong>Name: </strong>{data.freelancer[0].firstName}</p>
+                            <p><strong>Mail: </strong>{data.freelancer[0].email}</p>
+                            <p><strong>Phone: </strong>{data.freelancer[0].phone}</p>
+                            <p><strong>Github: </strong>{data.freelancer[0].github}</p>
                         </CardContent>
                     </Card>
                 </Grid>

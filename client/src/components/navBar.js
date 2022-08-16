@@ -14,10 +14,14 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
+import { useQuery } from '@apollo/client'
+import { GET_FREELANCERS } from '../utils/queries'
+
 const drawerWidth = 240;
 const navItems = ['Home', 'Sign In', 'Sign Up'];
 
 function MainNav (props) {
+
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 

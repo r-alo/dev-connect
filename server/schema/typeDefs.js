@@ -24,6 +24,9 @@ const typeDefs = gql`
     type Freelancer {
         firstName: String!
         lastName: String!
+        email: String!
+        phone: String!
+        github: String!
         languages: [Language]
     }
 
