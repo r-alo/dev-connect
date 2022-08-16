@@ -86,7 +86,7 @@ const additionalKn = ["MVS", "Object-Oriented-Programming (OOP)", "Application P
         {
         languages.map(item => (<FormControlLabel
           control={
-            <Checkbox checked={ item } onChange={ handleChange } name={item} />
+            <Checkbox defaultChecked={ false } onChange={ handleChange } name={item} />
           }
           label={item}
         />))
@@ -101,7 +101,7 @@ const additionalKn = ["MVS", "Object-Oriented-Programming (OOP)", "Application P
         {
         frameworks.map(item => (<FormControlLabel
           control={
-            <Checkbox checked={ item } onChange={ handleChange } name={item} />
+            <Checkbox defaultChecked={ false } onChange={ handleChange } name={item} />
           }
           label={item}
         />))
@@ -116,7 +116,7 @@ const additionalKn = ["MVS", "Object-Oriented-Programming (OOP)", "Application P
         {
         platforms.map(item => (<FormControlLabel
           control={
-            <Checkbox checked={ item } onChange={ handleChange } name={item} />
+            <Checkbox defaultChecked={ false } onChange={ handleChange } name={item} />
           }
           label={item}
         />))
@@ -132,7 +132,7 @@ const additionalKn = ["MVS", "Object-Oriented-Programming (OOP)", "Application P
         {
         additionalKn.map(item => (<FormControlLabel
           control={
-            <Checkbox checked={ item } onChange={ handleChange } name={item} />
+            <Checkbox defaultChecked={ false } onChange={ handleChange } name={item} />
           }
           label={item}
         />))
