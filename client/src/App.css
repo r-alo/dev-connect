@@ -41,6 +41,16 @@
     border-radius: 10px;
     padding: 25px;
 }
+.log-in{
+  padding: 2%;
+  height: 70vh;
+  max-width: 280px;
+  margin: 20px auto;
+}
+
+.log-in-input {
+  margin-bottom: 10px !important;
+}
 
 .table-head {
   border-bottom: 2px solid rgba(224, 224, 224, 1);
