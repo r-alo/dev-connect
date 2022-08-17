@@ -28,7 +28,6 @@ const typeDefs = gql`
         email: String!
         phone: String!
         github: String!
-        email:String!
         languages: [Language]
         password: String
     }
@@ -38,17 +37,18 @@ const typeDefs = gql`
       }
 
     type Query {
+        me: Freelancer
         language: [Language]
         framework: [Framework]
         platform: [Platform]
         freelancers: [Freelancer]
-        freelancer(profileId: ID!): Freelancer
+        # freelancer(profileId: ID!): Freelancer
 
     }
 
     type Mutation {
         addLanguageTypeScript: Language
-        addProfile(firstName: String!, lastName: String!, phone: String!, github: String!, company: String!, email: String!, password: String!, language: String!, framework: String!, platform: String!): Freelancer
+        addProfile(firstName: String!, lastName: String!, phone: String!, github: String!, company: String!, email: String!, password: String!, language: [String!], framework: [String!], platform: [String!]): Freelancer
         login(email: String!, password: String!): Auth
     }
 `;

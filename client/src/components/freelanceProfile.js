@@ -3,7 +3,7 @@ import { deepOrange } from '@mui/material/colors';
 
 // Apollo Client
 import { useQuery } from '@apollo/client';
-import { GET_FREELANCERS } from '../utils/queries';
+import { ME } from '../utils/queries';
 
 
 function FreelanceProfile() {
@@ -82,8 +82,9 @@ function FreelanceProfile() {
     ];
 
     // Get data from GraphQL
-    const { loading, error, data } = useQuery(GET_FREELANCERS);
+    const { loading, error, data } = useQuery(ME);
     if (loading) return (<></>);
+    if (error) return (<h1>{error.message}</h1>)
     console.log(data);
 
     return (
@@ -93,11 +94,11 @@ function FreelanceProfile() {
                 <Grid xs={8}>
                     <Card sx={{ minWidth: 275 }}>
                         <CardContent>
-                            <h1>Developer profile</h1>
-                            <p><strong>Name: </strong>{data.freelancer[0].firstName}</p>
-                            <p><strong>Mail: </strong>{data.freelancer[0].email}</p>
-                            <p><strong>Phone: </strong>{data.freelancer[0].phone}</p>
-                            <p><strong>Github: </strong>{data.freelancer[0].github}</p>
+                            <h1>{data.me.firstName}'s Profile</h1>
+                            <p><strong>Name: </strong>{data.me.firstName} {data.me.lastName}</p>
+                            <p><strong>Mail: </strong>{data.me.email}</p>
+                            <p><strong>Phone: </strong>{data.me.phone}</p>
+                            <p><strong>Github: </strong>{data.me.github}</p>
                         </CardContent>
                     </Card>
                 </Grid>

@@ -4,28 +4,45 @@ import TemplateForm from './components/templateForm';
 import NavRecruit from './components/navRecruit';
 import NavBar from './components/navBar';
 import FreelanceProfile from './components/freelanceProfile';
+import LogIn from './components/login'
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { ApolloClient, InMemoryCache, ApolloProvider, HttpLink, ApolloLink, concat } from '@apollo/client';
 
-// const httpLink = new HttpLink({ uri: 'http://localhost:3001/graphql'});
-// const link = new ApolloLink((operation, forward) => {
-//   return forward(operation)
-// });
+const httpLink = new HttpLink({ uri: 'http://localhost:3001/graphql'});
+
+const authLink = new ApolloLink((operation, forward) => {
+    // add the authorization to the headers
+    console.log(operation.getContext())
+    operation.setContext(({ headers = {} }) => (
+      {
+      headers: {
+        ...headers,
+        authorization: localStorage.getItem('id_token') || null,
+      }
+    }
+    )); 
+    console.log(operation.getContext())
+    return forward(operation);
+});
 
 const client = new ApolloClient({
-  uri: "http://localhost:3001/graphql",
-  // link: concat(link, httpLink),
+  link: concat(authLink, httpLink),
   cache: new InMemoryCache(),
 });
 
 function App() {
-  // const { loading, error, data } = useQuery(GET_FREELANCERS);
-  // console.log(data);
   return (
     <ApolloProvider client={client}>
-      <div className="App">
-        <FreelanceProfile />
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <Routes>
+            <Route path="/profile" element={<FreelanceProfile />} />
+            <Route path="/login" element={<LogIn />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
     </ApolloProvider>
   );
 }

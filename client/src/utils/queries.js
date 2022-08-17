@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
-export const GET_FREELANCERS = gql`
-    query freelancer {
-        freelancer {
+export const ME = gql`
+    query me {
+        me {
             firstName
             lastName
             email
@@ -11,6 +11,14 @@ export const GET_FREELANCERS = gql`
             languages {
                 language
             }
+        }
+    }
+`;
+
+export const LANGUAGE = gql`
+    query language {
+        language {
+            language
         }
     }
 `;

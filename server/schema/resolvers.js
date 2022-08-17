@@ -4,6 +4,12 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
+        me: async (parent, params, context) => {
+            if (context.user) {
+                return Freelancer.findOne({ _id: context.user._id });
+              }
+            throw new AuthenticationError('You need to be logged in!');
+        },
         language: async () => {
             return await Language.find({});
         },
@@ -16,9 +22,9 @@ const resolvers = {
         freelancers: async () => {
             return await Freelancer.find({});
         },
-        freelancer: async (parent, { profileId }) => {
-            return Freelancer.findOne({ _id: profileId });
-          },
+        // freelancer: async (parent, { profileId }) => {
+        //     return Freelancer.findOne({ _id: profileId });
+        //   },
     },
 
     Mutation: {
