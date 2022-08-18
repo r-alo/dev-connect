@@ -4,6 +4,7 @@ import TemplateForm from './components/templateForm';
 import NavRecruit from './components/navRecruit';
 import NavBar from './components/navBar';
 import FreelanceProfile from './components/freelanceProfile';
+import FreelanceHighlight from './components/freelanceHighlight';
 import LogIn from './components/login'
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -40,6 +41,8 @@ function App() {
           <Routes>
             <Route path="/profile" element={<FreelanceProfile />} />
             <Route path="/login" element={<LogIn />} />
+            <Route path="/highlight" element={ <FreelanceHighlight /> } />
+            <Route path="/highlight" element={ <FreelanceHighlight /> } />
           </Routes>
         </div>
       </BrowserRouter>
