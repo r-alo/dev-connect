@@ -5,7 +5,9 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
-import MainNav from './navBar';
+
+//Component imports
+import NavRecruit from './navRecruit';
 
 // Apollo Client
 import { useQuery } from '@apollo/client';
@@ -27,11 +29,13 @@ function FreelanceHighlight () {
     if (error) return (<h1>{ error.message }</h1>)
     console.log(data);
 
-    
+
     return (
         <Container className='container-profile'>
-            
-
+            <NavRecruit />
+            <br/>
+            <br/>
+            <br/>
             <Grid container spacing={ 1 }>
                 <Grid className='avatar' xs={ 4 }><Avatar sx={ { bgcolor: deepOrange[500], width: 100, height: 100 } }>N</Avatar></Grid>
                 <Grid xs={ 8 }>
