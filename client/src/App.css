@@ -47,6 +47,13 @@
   max-width: 280px;
   margin: 20px auto;
 }
+.sign-up{
+  padding: 2%;
+  height: 70vh;
+  width: 90vw;
+  margin: 20px auto;
+}
+
 
 .log-in-input {
   margin-bottom: 10px !important;
