@@ -4,9 +4,7 @@ import { Grid, Paper, TextField, Button, InputLabel, Select, MenuItem, FormContr
 import { useMutation } from '@apollo/client';
 import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/Auth';
- 
-//Component imports
-import NavBar from './navBar';
+import { Container, Stack } from '@mui/system';
 
 export default function Signup() {
     const [age, setAge] = useState('');
@@ -45,14 +43,11 @@ export default function Signup() {
 
     return (
         <Grid>
-            <NavBar />
-            <Paper className='log-in' elevation={10}>
+            <Paper className='sign-up' elevation={10}>
                 <Grid align='center'>
                     <h2>Sign up</h2>
                 </Grid>
-                <TextField className='log-in-input' label='email' placeholder='Email' name='email' value={formState.email} onChange={handleChange} fullWidth required />
-                <TextField className='log-in-input' label='password' placeholder='Password' type='password' name='password' value={formState.password} onChange={handleChange} fullWidth required />
-                {/* <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+                <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
                     <InputLabel id="demo-simple-select-standard-label">Account type</InputLabel>
                     <Select
                         labelId="demo-simple-select-standard-label"
@@ -67,8 +62,11 @@ export default function Signup() {
                         <MenuItem>Freelancer</MenuItem>
                         <MenuItem>Recruiter</MenuItem>
                     </Select>
-                </FormControl> */}
-                <Button type='submit' color='primary' variant="contained" fullWidth onClick={handleFormSubmit}>Log in</Button>
+                </FormControl>
+                <Container>
+                    {/* Render del form */}
+                </Container>
+                <Button type='submit' color='primary' variant="contained"  onClick={handleFormSubmit}>Sign up</Button>
                 <p>Already have an account? <a href='/login'>Log in</a></p>
             </Paper>
         </Grid>
