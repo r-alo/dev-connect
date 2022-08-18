@@ -1,25 +1,21 @@
 import './App.css';
-import React from 'react';
-import TemplateForm from './components/templateForm';
-import NavRecruit from './components/navRecruit';
-import NavBar from './components/navBar';
 import FreelanceProfile from './components/freelanceProfile';
 import FreelanceHighlight from './components/freelanceHighlight';
 import LogIn from './components/login'
 import RecruiterForm from './components/recruiterForm';
 import LandingPage from './components/landingPage';
-
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
-import { ApolloClient, InMemoryCache, ApolloProvider, HttpLink, ApolloLink, concat } from '@apollo/client';
 import RecruiterProfile from './components/recruiterProfile';
 import Signup from './components/signup';
 
-const httpLink = new HttpLink({ uri: 'http://localhost:3001/graphql'});
+// React Router
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+// Apollo Client
+import { ApolloClient, InMemoryCache, ApolloProvider, HttpLink, ApolloLink, concat } from '@apollo/client';
+
+const httpLink = new HttpLink({ uri: 'http://localhost:3001/graphql'});
 const authLink = new ApolloLink((operation, forward) => {
-    // add the authorization to the headers
-    console.log(operation.getContext())
+    // add the authorization to the headers=
     operation.setContext(({ headers = {} }) => (
       {
       headers: {
@@ -28,7 +24,6 @@ const authLink = new ApolloLink((operation, forward) => {
       }
     }
     )); 
-    console.log(operation.getContext())
     return forward(operation);
 });
 
@@ -43,13 +38,13 @@ function App() {
       <BrowserRouter>
         <div className="App">
           <Routes>
+            <Route path="/" element={<LandingPage />} />
             <Route path="/profile" element={<FreelanceProfile />} />
             <Route path="/login" element={<LogIn />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/recruiter" element={<RecruiterProfile />} />
             <Route path="/highlight" element={ <FreelanceHighlight /> } />
             <Route path="/recruiterForm" element={<RecruiterForm />} />
-            <Route path="/home" element={<LandingPage />} />
           </Routes>
         </div>
       </BrowserRouter>
