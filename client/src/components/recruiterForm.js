@@ -4,12 +4,25 @@ import TextField from '@mui/material/TextField';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
 
 
 export default function RecruiterForm() {
 
   return (
+    <Paper
+      sx={{
+        p: 2,
+        margin: 'auto',
+        maxWidth: 500,
+        flexGrow: 1,
+        backgroundColor: (theme) =>
+          theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+      }}
+    >
     <Container component="main" maxWidth="xs">
+    <Grid>
     <Box
       component="form"
       noValidate
@@ -21,17 +34,19 @@ export default function RecruiterForm() {
         alignItems: 'center',
       }}
     >
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h4">
             Sign in
           </Typography>
-    <Box component="form" noValidate sx={{ mt: 1 }}>
+    <Box component="form" noValidate
+    sx={{
+      '& .MuiTextField-root': { m: 1, width: '25ch' },
+    }}>
       <div>
         <TextField
         margin="normal"
-        fullWidth
         autoFocus
         variant="outlined"
-        color="success"
+        color="primary.dark"
         focused
           required
           id=""
@@ -40,7 +55,6 @@ export default function RecruiterForm() {
         />
         <TextField
         margin="normal"
-        fullWidth
         autoFocus
         variant="outlined"
         color="success"
@@ -122,6 +136,8 @@ export default function RecruiterForm() {
       </div>
     </Box>
     </Box>
+    </Grid>
     </Container>
+    </Paper>
   );
 }
