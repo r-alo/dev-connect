@@ -43,6 +43,7 @@ function App() {
             <Route path="/profile" element={<FreelanceProfile />} />
             <Route path="/login" element={<LogIn />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/recruiter" element={<RecruiterProfile />} />
           </Routes>
         </div>
       </BrowserRouter>
