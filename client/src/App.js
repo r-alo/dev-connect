@@ -5,6 +5,8 @@ import NavRecruit from './components/navRecruit';
 import NavBar from './components/navBar';
 import FreelanceProfile from './components/freelanceProfile';
 import LogIn from './components/login'
+import RecruiterForm from './components/recruiterForm';
+import LandingPage from './components/landingPage';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -44,6 +46,8 @@ function App() {
             <Route path="/login" element={<LogIn />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/recruiter" element={<RecruiterProfile />} />
+            <Route path="/recruiterForm" element={<RecruiterForm />} />
+            <Route path="/home" element={<LandingPage />} />
           </Routes>
         </div>
       </BrowserRouter>
