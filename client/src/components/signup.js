@@ -5,7 +5,7 @@ import { useMutation } from '@apollo/client';
 import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/Auth';
 
-export default function Login() {
+export default function Signup() {
 
     const [formState, setFormState] = useState({ email: '', password: '' });
     const [login, { data, loading, error }] = useMutation(LOGIN);
@@ -44,12 +44,12 @@ export default function Login() {
         <Grid>
             <Paper className='log-in' elevation={10}>
                 <Grid align='center'>
-                    <h2>Log In</h2>
+                    <h2>Sign up</h2>
                 </Grid>
                 <TextField className='log-in-input' label='email' placeholder='Email' name='email' value={formState.email} onChange={handleChange} fullWidth required/>
                 <TextField className='log-in-input' label='password' placeholder='Password' type='password' name='password' value={formState.password} onChange={handleChange} fullWidth required/>
                 <Button type='submit' color='primary' variant="contained" fullWidth onClick={handleFormSubmit}>Log in</Button>
-                <p>Dont have an account? <a href='/signup'>Sign up</a></p>
+                <p>Already have an account? <a href='/login'>Log in</a></p>
             </Paper>
         </Grid>
     );
