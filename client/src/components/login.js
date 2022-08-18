@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { Grid, Paper, TextField, Button } from '@mui/material'
 
+//Component imports
+import NavBar from './navBar';
+
 import { useMutation } from '@apollo/client';
 import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/Auth';
@@ -42,6 +45,10 @@ export default function Login() {
 
     return(
         <Grid>
+            <NavBar />
+            <br/>
+            <br/>
+            <br/>
             <Paper className='log-in' elevation={10}>
                 <Grid align='center'>
                     <h2>Log In</h2>

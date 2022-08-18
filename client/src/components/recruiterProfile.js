@@ -2,6 +2,9 @@ import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
 import { Container, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, Stack, TextField, Avatar, Button } from '@mui/material';
 import { deepOrange } from '@mui/material/colors';
 
+//Component imports
+import NavRecruit from './navRecruit';
+
 
 const filterOptions = createFilterOptions({
     matchFrom: 'start',
@@ -11,6 +14,10 @@ const filterOptions = createFilterOptions({
 export default function RecruiterProfile() {
     return (
         <Container>
+            <NavRecruit />
+            <br/>
+            <br/>
+            <br/>
             <Stack className='recruiter-filter-container' spacing={2} sx={{ width: 500 }}>
                 <div className='container'>
                     <Autocomplete

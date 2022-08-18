@@ -20,7 +20,7 @@ import { GET_FREELANCERS } from '../utils/queries'
 const drawerWidth = 240;
 const navItems = ['Home', 'Sign In', 'Sign Up'];
 
-function MainNav (props) {
+function NavBar (props) {
 
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -99,4 +99,4 @@ function MainNav (props) {
     );
 }
 
-export default MainNav;
+export default NavBar;

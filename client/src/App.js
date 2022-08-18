@@ -4,6 +4,7 @@ import TemplateForm from './components/templateForm';
 import NavRecruit from './components/navRecruit';
 import NavBar from './components/navBar';
 import FreelanceProfile from './components/freelanceProfile';
+import FreelanceHighlight from './components/freelanceHighlight';
 import LogIn from './components/login'
 import RecruiterForm from './components/recruiterForm';
 import LandingPage from './components/landingPage';
@@ -46,6 +47,7 @@ function App() {
             <Route path="/login" element={<LogIn />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/recruiter" element={<RecruiterProfile />} />
+            <Route path="/highlight" element={ <FreelanceHighlight /> } />
             <Route path="/recruiterForm" element={<RecruiterForm />} />
             <Route path="/home" element={<LandingPage />} />
           </Routes>
