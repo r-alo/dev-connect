@@ -21,11 +21,15 @@ const knowledge = [
     {knowledge: 'PWA'},
     {knowledge: 'TDD'},
 ];
-
-const freelancer = [
-    {firstName: 'Richard', lastName: 'Guarnieri', password: '12345678', email: 'example@example.com', phone: '123456789', github: 'richardguarnieri', company: 'none', languages: [{language: 'HTML'}, {language: 'CSS'}], frameworks: [{framework: 'React'}], platforms: [{platform:'Heroku'}], knowledge: [{knowledge: 'Git'}]},
+const nickname = [
+    {nickname: 'RichG'},
+    {nickname: 'DaniL'}
 ];
 
-module.exports = { languages, frameworks, platforms, knowledge, freelancer };
+const freelancer = [
+    {firstName: 'Richard', lastName: 'Guarnieri', password: '12345678', email: 'example@example.com', phone: '123456789', github: 'richardguarnieri', company: 'none', languages: [{language: 'HTML'}, {language: 'CSS'}], frameworks: [{framework: 'React'}], platforms: [{platform:'Heroku'}], knowledge: [{knowledge: 'Git'}], nickname: [{nickname:'RichardGu'}]},
+];
+
+module.exports = {languages, frameworks, platforms, knowledge, freelancer,nickname };
 
 

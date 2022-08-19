@@ -28,7 +28,7 @@ const frameworks = ["React.js", "Bootstrap", "jQuery", "Express.js", "Sequelize.
 const platforms = ["Heroku", "GitHub", "GitLab", "Node.js", "StackOverFlow", "Postman"];
 const additionalKn = ["MVS", "Object-Oriented-Programming (OOP)", "Application Programming Interfaces (API)", "TDD", "Progressive Web Applications (PWA)", "Git", "Visual Studio Code"];
 
-//This is the form
+//This is the form 
   const { html, css, javascript } = state;
   return (
     <Container>
