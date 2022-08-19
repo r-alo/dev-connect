@@ -1,7 +1,7 @@
 import './App.css';
 import FreelanceProfile from './pages/freelanceProfile';
 import FreelanceHighlight from './pages/freelanceHighlight';
-import LogIn from './pages/login'
+import Signin from './pages/Signin'
 import RecruiterForm from './components/recruiterForm';
 import LandingPage from './pages/LandingPage';
 import RecruiterProfile from './pages/recruiterProfile';
@@ -43,8 +43,8 @@ function App() {
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/signin" element={<Signin />} />
             <Route path="/profile" element={<FreelanceProfile />} />
-            <Route path="/login" element={<LogIn />} />
             <Route path="/recruiter" element={<RecruiterProfile />} />
             <Route path="/highlight" element={ <FreelanceHighlight /> } />
             <Route path="/recruiterForm" element={<RecruiterForm />} />
