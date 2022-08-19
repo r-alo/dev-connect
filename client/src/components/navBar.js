@@ -36,7 +36,10 @@ function NavBar (props) {
             {name: 'Sign In', url: '/signin'},
             {name: 'Sign Up', url: '/signup'}
         ])
-        // if (isLogged) setNavItems(['Home', 'Sign Out']);
+        if (isLogged) setNavItems([
+            {name: 'Home', url: '/profile'},
+            {name: 'Sign Out', url: '/'}
+        ]);
     }, []);
 
 
