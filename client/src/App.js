@@ -3,9 +3,10 @@ import FreelanceProfile from './components/freelanceProfile';
 import FreelanceHighlight from './components/freelanceHighlight';
 import LogIn from './components/login'
 import RecruiterForm from './components/recruiterForm';
-import LandingPage from './components/landingPage';
+import LandingPage from './pages/LandingPage';
 import RecruiterProfile from './components/recruiterProfile';
 import Signup from './components/signup';
+import NavBar from './components/navBar';
 
 // React Router
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -23,7 +24,8 @@ const authLink = new ApolloLink((operation, forward) => {
         authorization: localStorage.getItem('id_token') || null,
       }
     }
-    )); 
+    ));
+    console.log(operation.getContext()) 
     return forward(operation);
 });
 
@@ -37,6 +39,7 @@ function App() {
     <ApolloProvider client={client}>
       <BrowserRouter>
         <div className="App">
+          <NavBar />
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/profile" element={<FreelanceProfile />} />
