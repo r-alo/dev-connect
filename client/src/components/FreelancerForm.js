@@ -6,7 +6,7 @@ import FormControl from "@mui/material/FormControl";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import { Container, Grid } from '@mui/material';
+import { Container, Grid, Paper } from '@mui/material';
 
 export default function TemplateForm() {
 
@@ -33,115 +33,121 @@ const additionalKn = ["MVS", "Object-Oriented-Programming (OOP)", "Application P
   return (
     <Container>
       <Grid>
-    <Box
-      component="form"
-      sx={{
-        '& .MuiTextField-root': { m: 1, width: '25ch' },
-      }}
-      noValidate
-      autoComplete="off"
-    >
-      <div>
-        <TextField
-          required
-          id=""
-          label="Name"
-          name="Freelance"
-        />
-        <TextField
-          required
-          id=""
-          label="Surname"
-          name="Freelance"
-        />
-        <TextField
-          id=""
-          label="Password"
-          type="password"
-          autoComplete="current-password"
-        />
-        <TextField
-          id=""
-          label="Confirm password"
-          type="password"
-          autoComplete="current-password"
-        />
-        <TextField
-          required
-          id=""
-          label="GitHub User Name"
-          name="Freelance"
-        />
-        <TextField
-          required
-          id=""
-          label="Phone Number"
-          name="Freelance"
-        />
-      </div>
-
-      <FormControl sx={ { m: 3 } } component="fieldset" variant="standard">
-        <FormLabel component="legend">Languages</FormLabel>
-        <FormGroup>
-        {
-        languages.map(item => (<FormControlLabel
-          control={
-            <Checkbox defaultChecked={ false } onChange={ handleChange } name={item} />
-          }
-          label={item}
-        />))
-      }
-            
-        </FormGroup>
-      </FormControl>
-
-      <FormControl sx={ { m: 3 } } component="fieldset" variant="standard">
-        <FormLabel component="legend">Libraries / Frameworks</FormLabel>
-        <FormGroup>
-        {
-        frameworks.map(item => (<FormControlLabel
-          control={
-            <Checkbox defaultChecked={ false } onChange={ handleChange } name={item} />
-          }
-          label={item}
-        />))
-      }
-            
-        </FormGroup>
-      </FormControl>
-
-      <FormControl sx={ { m: 3 } } component="fieldset" variant="standard">
-        <FormLabel component="legend">Platforms</FormLabel>
-        <FormGroup>
-        {
-        platforms.map(item => (<FormControlLabel
-          control={
-            <Checkbox defaultChecked={ false } onChange={ handleChange } name={item} />
-          }
-          label={item}
-        />))
-      }
-            
-        </FormGroup>
-      </FormControl>
       
+        <Box
+          component="form"
+          sx={{
+            '& .MuiTextField-root': { m: 1, width: '25ch' },
+          }}
+          noValidate
+          autoComplete="off"
+        > 
 
-      <FormControl sx={ { m: 3 } } component="fieldset" variant="standard">
-        <FormLabel component="legend">Additional Knowledge</FormLabel>
-        <FormGroup>
-        {
-        additionalKn.map(item => (<FormControlLabel
-          control={
-            <Checkbox defaultChecked={ false } onChange={ handleChange } name={item} />
-          }
-          label={item}
-        />))
-      }
+          <Paper className='-form' elevation={10}> 
+            <Grid className='freelancer-form' align='center'>
+                <h2>Profile Form</h2>
+            </Grid>
+            <div>
+              <TextField
+                required
+                id=""
+                label="Name"
+                name="Freelance"
+              />
+              <TextField
+                required
+                id=""
+                label="Surname"
+                name="Freelance"
+              />
+              <TextField
+                id=""
+                label="Password"
+                type="password"
+                autoComplete="current-password"
+              />
+              <TextField
+                id=""
+                label="Confirm password"
+                type="password"
+                autoComplete="current-password"
+              />
+              <TextField
+                required
+                id=""
+                label="GitHub User Name"
+                name="Freelance"
+              />
+              <TextField
+                required
+                id=""
+                label="Phone Number"
+                name="Freelance"
+              />
+            </div>
+
+            <FormControl sx={ { m: 3 } } component="fieldset" variant="standard">
+              <FormLabel component="legend">Languages</FormLabel>
+              <FormGroup>
+              {
+              languages.map(item => (<FormControlLabel
+                control={
+                  <Checkbox defaultChecked={ false } onChange={ handleChange } name={item} />
+                }
+                label={item}
+              />))
+            }
+                  
+              </FormGroup>
+            </FormControl>
+
+            <FormControl sx={ { m: 3 } } component="fieldset" variant="standard">
+              <FormLabel component="legend">Libraries / Frameworks</FormLabel>
+              <FormGroup>
+              {
+              frameworks.map(item => (<FormControlLabel
+                control={
+                  <Checkbox defaultChecked={ false } onChange={ handleChange } name={item} />
+                }
+                label={item}
+              />))
+            }
+                  
+              </FormGroup>
+            </FormControl>
+
+            <FormControl sx={ { m: 3 } } component="fieldset" variant="standard">
+              <FormLabel component="legend">Platforms</FormLabel>
+              <FormGroup>
+              {
+              platforms.map(item => (<FormControlLabel
+                control={
+                  <Checkbox defaultChecked={ false } onChange={ handleChange } name={item} />
+                }
+                label={item}
+              />))
+            }
+                  
+              </FormGroup>
+            </FormControl>
             
-        </FormGroup>
-      </FormControl>
-      
-    </Box>
+
+            <FormControl sx={ { m: 3 } } component="fieldset" variant="standard">
+              <FormLabel component="legend">Additional Knowledge</FormLabel>
+              <FormGroup>
+              {
+              additionalKn.map(item => (<FormControlLabel
+                control={
+                  <Checkbox defaultChecked={ false } onChange={ handleChange } name={item} />
+                }
+                label={item}
+              />))
+            }
+                  
+              </FormGroup>
+            </FormControl>
+          </Paper>
+        </Box>
       </Grid>
     </Container>
   );
