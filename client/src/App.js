@@ -2,7 +2,7 @@ import './App.css';
 import FreelanceProfile from './pages/freelanceProfile';
 import FreelanceHighlight from './pages/freelanceHighlight';
 import Signin from './pages/Signin'
-import RecruiterForm from './components/recruiterForm';
+import RecruiterForm from './components/RecruiterForm';
 import LandingPage from './pages/LandingPage';
 import RecruiterProfile from './pages/recruiterProfile';
 import Signup from './pages/Signup';
