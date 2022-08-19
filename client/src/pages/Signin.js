@@ -29,7 +29,7 @@ export default function Login() {
             variables: { ...formState },
         });
 
-        Auth.login(data.loginFreelancer.token);
+        Auth.loginFreelancer(data.loginFreelancer.token);
         } catch (e) {
         console.error(e);
         }

@@ -23,3 +23,16 @@ export const ADD_FREELANCER = gql`
         }
     }
 `;
+
+export const ADD_RECRUITER = gql`
+    mutation addRecruiter($firstName: String!, $lastName: String!, $phone: String!, $company: String!, $email: String!, $password: String!) {
+        addRecruiter(firstName: $firstName, lastName: $lastName, phone: $phone, company: $company, email: $email, password: $password) {
+            token
+            freelancer {
+                _id
+                email
+                type
+            }
+        }
+    }
+`;

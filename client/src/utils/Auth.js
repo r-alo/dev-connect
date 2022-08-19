@@ -23,9 +23,14 @@ class AuthService {
     return localStorage.getItem('id_token');
   }
 
-  login(idToken) {
+  loginFreelancer(idToken) {
     localStorage.setItem('id_token', idToken);
     window.location.assign('/profile');
+  }
+
+  loginRecruiter(idToken) {
+    localStorage.setItem('id_token', idToken);
+    window.location.assign('/recruiter');
   }
 
   logout() {
