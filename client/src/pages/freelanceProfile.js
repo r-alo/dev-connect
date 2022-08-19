@@ -1,8 +1,6 @@
+//React & MUI Imports
 import { Grid, Container, Avatar, Card, CardContent, Typography, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, ImageList, ImageListItem, ListSubheader, ImageListItemBar, IconButton } from '@mui/material';
 import { deepOrange } from '@mui/material/colors';
-
-//Component imports
-import NavFree from './navFreelance';
 
 // Apollo Client
 import { useQuery } from '@apollo/client';
@@ -92,10 +90,6 @@ function FreelanceProfile() {
 
     return (
         <Container className='container-profile'>
-            <NavFree />
-            <br />
-            <br />
-            <br />
             <Grid className='grid-profile' container spacing={1}>
                 <Grid xs={4}><Avatar sx={{ bgcolor: deepOrange[500], width: 100, height: 100 }}>N</Avatar></Grid>
                 <Grid xs={8}>

@@ -1,5 +1,5 @@
+//React & MUI Imports
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
@@ -14,13 +14,31 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
-import { useQuery } from '@apollo/client'
-import { GET_FREELANCERS } from '../utils/queries'
+import { Link } from 'react-router-dom';
+
+import { useState, useEffect } from 'react';
+
+// Session Authenticator
+import Auth from '../utils/Auth';
 
 const drawerWidth = 240;
-const navItems = ['Home', 'Sign In', 'Sign Up'];
+// let navItems = ['Home', 'Sign In', 'Sign Up'];
 
 function NavBar (props) {
+
+    const [navItems, setNavItems] = useState([]);
+
+    useEffect(() => {
+        const isLogged = Auth.loggedIn();
+        console.log(isLogged);
+        if (!isLogged) setNavItems([
+            {name: 'Home', url: '/'},
+            {name: 'Sign In', url: '/signin'},
+            {name: 'Sign Up', url: '/signup'}
+        ])
+        // if (isLogged) setNavItems(['Home', 'Sign Out']);
+    }, []);
+
 
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -37,11 +55,13 @@ function NavBar (props) {
             <Divider />
             <List>
                 { navItems.map((item) => (
-                    <ListItem key={ item } disablePadding>
-                        <ListItemButton sx={ { textAlign: 'center' } }>
-                            <ListItemText primary={ item } />
-                        </ListItemButton>
-                    </ListItem>
+                    <Link to={item.url} style={{textDecoration: 'none', textAlign: 'center'}}>
+                        <ListItem key={ item.name } disablePadding>
+                            <ListItemButton sx={ { textAlign: 'center' } }>
+                                    <ListItemText primary={ item.name } />
+                            </ListItemButton>
+                        </ListItem>
+                    </Link>
                 )) }
             </List>
         </Box>
@@ -50,7 +70,7 @@ function NavBar (props) {
     const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
-        <Box sx={ { display: 'flex' } }>
+        <Box className="nav-bar" sx={ { display: 'flex' } }>
             <AppBar component="nav">
                 <Toolbar>
                     <IconButton
@@ -71,9 +91,11 @@ function NavBar (props) {
                     </Typography>
                     <Box sx={ { display: { xs: 'none', sm: 'block' } } }>
                         { navItems.map((item) => (
-                            <Button key={ item } sx={ { color: '#fff' } }>
-                                { item }
-                            </Button>
+                            <Link to={item.url} style={{textDecoration: 'none'}}>
+                                <Button key={ item.name } sx={ { color: '#fff' } }>
+                                    { item.name }
+                                </Button>
+                            </Link>
                         )) }
                     </Box>
                 </Toolbar>
