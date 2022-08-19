@@ -8,39 +8,8 @@ import { Container } from '@mui/system';
 
 export default function Signup() {
     
-    const [age, setAge] = useState('');
-    const [formState, setFormState] = useState({ email: '', password: '' });
-    const [login, { data, loading, error }] = useMutation(LOGIN);
-
-    // update state based on form input changes
-    const handleChange = (event) => {
-        const { name, value } = event.target;
-        setFormState({
-            ...formState,
-            [name]: value,
-        });
-    };
-
-    // submit form
-    const handleFormSubmit = async (event) => {
-        event.preventDefault();
-        console.log(formState);
-        try {
-            const { data } = await login({
-                variables: { ...formState },
-            });
-
-            Auth.login(data.login.token);
-        } catch (e) {
-            console.error(e);
-        }
-
-        // clear form values
-        setFormState({
-            email: '',
-            password: '',
-        });
-    };
+    const [type, setType] = useState('');
+    
 
     return (
         <Grid>
@@ -53,13 +22,10 @@ export default function Signup() {
                     <Select
                         labelId="demo-simple-select-standard-label"
                         id="demo-simple-select-standard"
-                        value={age}
-                        onChange={handleChange}
-                        label="Age"
+                        value={type}
+
+                        label="type"
                     >
-                        <MenuItem value="">
-                            <em>None</em>
-                        </MenuItem>
                         <MenuItem>Freelancer</MenuItem>
                         <MenuItem>Recruiter</MenuItem>
                     </Select>
@@ -67,7 +33,7 @@ export default function Signup() {
                 <Container>
                     {/* Render del form */}
                 </Container>
-                <Button type='submit' color='primary' variant="contained"  onClick={handleFormSubmit}>Sign up</Button>
+                <Button type='submit' color='primary' variant="contained"  >Sign up</Button>
                 <p>Already have an account? <a href='/login'>Log in</a></p>
             </Paper>
         </Grid>

@@ -15,14 +15,14 @@ export default function LandingPage() {
             and the most renewed companies from all around the world.
           </Typography>
           <Link to="/signup" 
-          style={{textDecoration: 'none'}}>
+            style={{textDecoration: 'none'}}>
           <Button
-          text align= "right"
-          gutterBottom
-            variant="contained"
-            color="success"
-            sx={{ width: '180px', fontSize: '16px' }}
-          >
+            text align= "right"
+            gutterBottom
+              variant="contained"
+              color="success"
+              sx={{ width: '180px', fontSize: '16px' }}
+            >
             Sign up now!
           </Button>
           </Link>
