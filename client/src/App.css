@@ -74,6 +74,15 @@
 
 .freelancer-form {
   padding-top: 1rem;
+  align-content: center;
+}
+
+.buttons {
+  text-align: center;
+  font-size: medium;
+  background-color: solid #0a5996;
+  color: white;
+  border-radius: 8px;
 }
 
 @keyframes App-logo-spin {
