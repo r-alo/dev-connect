@@ -30,7 +30,6 @@ function NavBar (props) {
 
     useEffect(() => {
         const isLogged = Auth.loggedIn();
-        console.log(isLogged);
         if (!isLogged) setNavItems([
             {name: 'Home', url: '/'},
             {name: 'Sign In', url: '/signin'},
@@ -38,9 +37,14 @@ function NavBar (props) {
         ])
         if (isLogged) setNavItems([
             {name: 'Home', url: '/profile'},
-            {name: 'Sign Out', url: '/'}
+            {name: 'Sign Out', url: '#'}
         ]);
     }, []);
+
+    const handleClick = (event) => {
+        console.log(event);
+        if (event.target.innerText === 'SIGN OUT') Auth.logout();
+    }
 
 
     const { window } = props;
@@ -94,7 +98,7 @@ function NavBar (props) {
                     </Typography>
                     <Box sx={ { display: { xs: 'none', sm: 'block' } } }>
                         { navItems.map((item) => (
-                            <Link to={item.url} style={{textDecoration: 'none'}}>
+                            <Link to={item.url} style={{textDecoration: 'none'}} onClick={handleClick}>
                                 <Button key={ item.name } sx={ { color: '#fff' } }>
                                     { item.name }
                                 </Button>
