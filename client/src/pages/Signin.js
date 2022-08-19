@@ -8,6 +8,7 @@ import Auth from '../utils/Auth';
 
 export default function Login() {
 
+    //for menu
     const [type, setType] = useState('');
     const handleChange2 = (event) => {
         setType(event.target.value);
