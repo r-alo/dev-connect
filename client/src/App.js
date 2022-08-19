@@ -5,7 +5,7 @@ import LogIn from './components/login'
 import RecruiterForm from './components/recruiterForm';
 import LandingPage from './pages/LandingPage';
 import RecruiterProfile from './components/recruiterProfile';
-import Signup from './components/signup';
+import Signup from './pages/Signup';
 import NavBar from './components/navBar';
 
 // React Router
@@ -40,11 +40,16 @@ function App() {
       <BrowserRouter>
         <div className="App">
           <NavBar />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
           <Routes>
             <Route path="/" element={<LandingPage />} />
+            <Route path="/signup" element={<Signup />} />
             <Route path="/profile" element={<FreelanceProfile />} />
             <Route path="/login" element={<LogIn />} />
-            <Route path="/signup" element={<Signup />} />
             <Route path="/recruiter" element={<RecruiterProfile />} />
             <Route path="/highlight" element={ <FreelanceHighlight /> } />
             <Route path="/recruiterForm" element={<RecruiterForm />} />
