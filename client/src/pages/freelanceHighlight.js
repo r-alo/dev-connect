@@ -1,3 +1,4 @@
+//React & MUI Imports
 import * as React from 'react';
 import { Grid, Container, Avatar, Card, CardContent, CardActions, Button, Typography } from '@mui/material';
 import {deepOrange} from '@mui/material/colors';
@@ -5,9 +6,6 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
-
-//Component imports
-import NavRecruit from './navRecruit';
 
 // Apollo Client
 import { useQuery } from '@apollo/client';
@@ -32,10 +30,6 @@ function FreelanceHighlight () {
 
     return (
         <Container className='container-profile'>
-            <NavRecruit />
-            <br/>
-            <br/>
-            <br/>
             <Grid container spacing={ 1 }>
                 <Grid className='avatar' xs={ 4 }><Avatar sx={ { bgcolor: deepOrange[500], width: 100, height: 100 } }>N</Avatar></Grid>
                 <Grid xs={ 8 }>

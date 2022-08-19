@@ -1,6 +1,6 @@
 import './App.css';
 import FreelanceProfile from './components/freelanceProfile';
-import FreelanceHighlight from './components/freelanceHighlight';
+import FreelanceHighlight from './pages/freelanceHighlight';
 import LogIn from './components/login'
 import RecruiterForm from './components/recruiterForm';
 import LandingPage from './pages/LandingPage';
@@ -40,11 +40,6 @@ function App() {
       <BrowserRouter>
         <div className="App">
           <NavBar />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/signup" element={<Signup />} />

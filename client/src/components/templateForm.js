@@ -5,12 +5,8 @@ import FormLabel from "@mui/material/FormLabel";
 import FormControl from "@mui/material/FormControl";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import FormHelperText from "@mui/material/FormHelperText";
 import Checkbox from "@mui/material/Checkbox";
-import NavBar from './navBar';
 import { Container, Grid } from '@mui/material';
-
-
 
 export default function TemplateForm() {
 
@@ -37,7 +33,6 @@ const additionalKn = ["MVS", "Object-Oriented-Programming (OOP)", "Application P
   return (
     <Container>
       <Grid>
-      <NavBar />
     <Box
       component="form"
       sx={{
