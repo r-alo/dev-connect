@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
-import { Grid, Paper, TextField, Button, InputLabel, Select, MenuItem, FormControl } from '@mui/material'
+import { Grid, Paper, Button, InputLabel, Select, MenuItem, FormControl } from '@mui/material'
 
 import { useMutation } from '@apollo/client';
 import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/Auth';
-import { Container, Stack } from '@mui/system';
-import NavBar from './navBar';
+import { Container } from '@mui/system';
+import NavBar from '../components/navBar';
 
 export default function Signup() {
+    
     const [age, setAge] = useState('');
     const [formState, setFormState] = useState({ email: '', password: '' });
     const [login, { data, loading, error }] = useMutation(LOGIN);
