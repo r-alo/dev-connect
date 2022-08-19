@@ -5,7 +5,7 @@ export const LOGIN = gql`
         login(email: $email, password: $password) {
             token
             freelancer {
-            email
+                email
             }
         }
     }
@@ -16,7 +16,9 @@ export const ADD_FREELANCER = gql`
         addFreelancer(email: $email, password: $password) {
             token
             freelancer {
-            email
+                _id
+                email
+                type
             }
         }
     }
