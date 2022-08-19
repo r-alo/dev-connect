@@ -47,7 +47,6 @@ function App() {
             <Route path="/profile" element={<FreelanceProfile />} />
             <Route path="/recruiter" element={<RecruiterProfile />} />
             <Route path="/highlight" element={ <FreelanceHighlight /> } />
-            <Route path="/recruiterForm" element={<RecruiterForm />} />
           </Routes>
         </div>
       </BrowserRouter>
