@@ -16,13 +16,7 @@ export default function LandingPage() {
           </Typography>
           <Link to="/signup" 
             style={{textDecoration: 'none'}}>
-          <Button
-            text align= "right"
-            gutterBottom
-              variant="contained"
-              color="success"
-              sx={{ width: '180px', fontSize: '16px' }}
-            >
+          <Button className='buttons' variant="contained">
             Sign up now!
           </Button>
           </Link>

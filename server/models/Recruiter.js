@@ -1,13 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require ('bcryptjs')
 
-const { languageSchema } = require('./Languages');
-const { frameworkSchema } = require('./Frameworks');
-const { platformSchema } = require('./Platforms');
-const { knowledgeSchema } = require('./Knowledge');
-// const { nicknameSchema } = require('./Nickname');
-
-const freelancerSchema = mongoose.Schema({
+const recruiterSchema = mongoose.Schema({
     firstName: {
         type: String,
         required: true,
@@ -35,25 +29,16 @@ const freelancerSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    github: {
-        type: String,
-        required: true,
-    },
     company: {
         type: String,
         required: true,
     },
     type: {type: String,
-    default: 'freelancer'
+    default: 'recruiter'
     },
-    // nickname: [nicknameSchema],
-    languages: [languageSchema],
-    frameworks: [frameworkSchema],
-    platforms: [platformSchema],
-    knowledge: [knowledgeSchema],
 });
 
-freelancerSchema.pre('save', async function (next) {
+recruiterSchema.pre('save', async function (next) {
     if (this.isNew || this.isModified('password')) {
       this.password = await bcrypt.hash(this.password, 10);
       console.log(this.password)
@@ -62,10 +47,10 @@ freelancerSchema.pre('save', async function (next) {
     next();
   });
   
-freelancerSchema.methods.isCorrectPassword = async function (password) {
+recruiterSchema.methods.isCorrectPassword = async function (password) {
     return bcrypt.compare(password, this.password);
   };
 
-const Freelancer = mongoose.model('Freelancer', freelancerSchema);
+const Recruiter = mongoose.model('Recruiter', recruiterSchema);
 
-module.exports = Freelancer;
+module.exports = Recruiter;
