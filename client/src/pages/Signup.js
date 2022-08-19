@@ -5,7 +5,6 @@ import { useMutation } from '@apollo/client';
 import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/Auth';
 import { Container } from '@mui/system';
-import NavBar from '../components/navBar';
 
 export default function Signup() {
     
@@ -45,10 +44,6 @@ export default function Signup() {
 
     return (
         <Grid>
-            <NavBar />
-            <br/>
-            <br/>
-            <br/>
             <Paper className='sign-up' elevation={10}>
                 <Grid align='center'>
                     <h2>Sign up</h2>

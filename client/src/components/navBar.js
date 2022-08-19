@@ -1,3 +1,4 @@
+//React & MUI Imports
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -69,7 +70,7 @@ function NavBar (props) {
     const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
-        <Box sx={ { display: 'flex' } }>
+        <Box className="nav-bar" sx={ { display: 'flex' } }>
             <AppBar component="nav">
                 <Toolbar>
                     <IconButton
