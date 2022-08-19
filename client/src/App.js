@@ -1,10 +1,10 @@
 import './App.css';
-import FreelanceProfile from './components/freelanceProfile';
+import FreelanceProfile from './pages/freelanceProfile';
 import FreelanceHighlight from './pages/freelanceHighlight';
-import LogIn from './components/login'
+import LogIn from './pages/login'
 import RecruiterForm from './components/recruiterForm';
 import LandingPage from './pages/LandingPage';
-import RecruiterProfile from './components/recruiterProfile';
+import RecruiterProfile from './pages/recruiterProfile';
 import Signup from './pages/Signup';
 import NavBar from './components/navBar';
 
