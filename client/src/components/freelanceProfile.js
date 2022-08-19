@@ -93,9 +93,9 @@ function FreelanceProfile() {
     return (
         <Container className='container-profile'>
             <NavFree />
-            <br/>
-            <br/>
-            <br/>
+            <br />
+            <br />
+            <br />
             <Grid className='grid-profile' container spacing={1}>
                 <Grid xs={4}><Avatar sx={{ bgcolor: deepOrange[500], width: 100, height: 100 }}>N</Avatar></Grid>
                 <Grid xs={8}>
@@ -117,12 +117,47 @@ function FreelanceProfile() {
                             <TableCell>Languages</TableCell>
                             <TableCell align="right">Frameworks</TableCell>
                             <TableCell align="right">Platforms</TableCell>
-                            <TableCell align="right">Aditional</TableCell>
+                            <TableCell align="right">Knowledge</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         <TableRow>
-
+                            <TableCell>
+                                {(() => {
+                                    if (data.me.languages) {
+                                        data.me.languages.map((value) => {
+                                            return (<p key={value._id}>{value.language}</p>);
+                                        })
+                                    }
+                                })}
+                            </TableCell>
+                            <TableCell>
+                                {(() => {
+                                    if (data.me.frameworks) {
+                                        data.me.frameworks.map((value) => {
+                                            return (<p key={value._id}>{value.framework}</p>);
+                                        })
+                                    }
+                                })}
+                            </TableCell>
+                            <TableCell>
+                                {(() => {
+                                    if (data.me.platforms) {
+                                        data.me.platforms.map((value) => {
+                                            return (<p key={value._id}>{value.platform}</p>);
+                                        })
+                                    }
+                                })}
+                            </TableCell>
+                            <TableCell>
+                                {(() => {
+                                    if (data.me.knowledge) {
+                                        data.me.knowledge.map((value, i) => {
+                                            return <p>{value.knowledge}</p>
+                                        })
+                                    }
+                                })}
+                            </TableCell>
                         </TableRow>
                     </TableBody>
                 </Table>
