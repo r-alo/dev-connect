@@ -3,13 +3,13 @@ import React, { useState } from 'react'
 import { Grid, Paper, TextField, Button } from '@mui/material'
 
 import { useMutation } from '@apollo/client';
-import { LOGIN } from '../utils/mutations';
+import { LOGIN_FREELANCER } from '../utils/mutations';
 import Auth from '../utils/Auth';
 
 export default function Login() {
 
     const [formState, setFormState] = useState({ email: '', password: '' });
-    const [login, { data, loading, error }] = useMutation(LOGIN);
+    const [login, { data, loading, error }] = useMutation(LOGIN_FREELANCER);
 
      // update state based on form input changes
     const handleChange = (event) => {
@@ -29,7 +29,7 @@ export default function Login() {
             variables: { ...formState },
         });
 
-        Auth.login(data.login.token);
+        Auth.login(data.loginFreelancer.token);
         } catch (e) {
         console.error(e);
         }
