@@ -35,6 +35,7 @@ const typeDefs = gql`
         github: String!
         languages: [Language]
         password: String!
+        type: String!
     }
 
     type Recruiter {
@@ -44,6 +45,7 @@ const typeDefs = gql`
         email: String!
         phone: String!
         password: String!
+        type: String!
     }
 
     type Auth {
