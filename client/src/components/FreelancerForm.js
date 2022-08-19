@@ -6,7 +6,7 @@ import FormControl from "@mui/material/FormControl";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import { Container, Grid, Paper } from '@mui/material';
+import { Container, Grid, Paper, Button } from '@mui/material';
 
 export default function TemplateForm() {
 
@@ -43,8 +43,8 @@ const additionalKn = ["MVS", "Object-Oriented-Programming (OOP)", "Application P
           autoComplete="off"
         > 
 
-          <Paper className='-form' elevation={10}> 
-            <Grid className='freelancer-form' align='center'>
+          <Paper elevation={10}> 
+            <Grid className='freelancer-form'>
                 <h2>Profile Form</h2>
             </Grid>
             <div>
@@ -86,6 +86,9 @@ const additionalKn = ["MVS", "Object-Oriented-Programming (OOP)", "Application P
               />
             </div>
 
+            <div>
+            <Grid>
+            <div>
             <FormControl sx={ { m: 3 } } component="fieldset" variant="standard">
               <FormLabel component="legend">Languages</FormLabel>
               <FormGroup>
@@ -145,7 +148,20 @@ const additionalKn = ["MVS", "Object-Oriented-Programming (OOP)", "Application P
             }
                   
               </FormGroup>
+
             </FormControl>
+            </div>
+
+            <div>
+            <Button className='buttons' sx={ { m: 3 } } variant="contained"
+              
+                >
+                  Sign Up
+                </Button>
+            </div>
+            </Grid>
+            </div>
+            
           </Paper>
         </Box>
       </Grid>
