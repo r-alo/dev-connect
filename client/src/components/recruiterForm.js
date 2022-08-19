@@ -12,122 +12,79 @@ import Grid from '@mui/material/Grid';
 export default function RecruiterForm() {
 
   return (
-    <Paper
-      sx={{
-        p: 2,
-        margin: 'auto',
-        maxWidth: 500,
-        flexGrow: 1,
-        backgroundColor: (theme) =>
-          theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-      }}
-    >
-      <Container component="main" maxWidth="xs">
-        <Grid>
-          <Box
-            component="form"
-            noValidate
-            autoComplete="off"
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-            }}
-          >
-            <Box component="form" noValidate
-              sx={{
-                '& .MuiTextField-root': { m: 1, width: '25ch' },
-              }}>
-              <div>
+    <Container>
+      <Grid>
+      
+        <Box
+          component="form"
+          sx={{
+            '& .MuiTextField-root': { m: 1, width: '25ch' },
+          }}
+          noValidate
+          autoComplete="off"
+        > 
+
+          <Paper elevation={10}> 
+            <Grid className='freelancer-form' align='center'>
+                <h2>Profile Form</h2>
+            </Grid>
+            <div>
                 <TextField
-                  margin="normal"
-                  autoFocus
-                  variant="outlined"
-                  focused
                   required
-                  id="name"
+                  id=""
                   label="Name"
                   name="Recruiter"
                 />
                 <TextField
-                  margin="normal"
-                  autoFocus
-                  variant="outlined"
-                  focused
                   required
-                  id="surname"
+                  id=""
                   label="Surname"
                   name="Recruiter"
                 />
+                <div>
                 <TextField
-                  margin="normal"
-                  fullWidth
-                  autoFocus
-                  variant="outlined"
-                  focused
+                  
                   required
-                  id="company-name"
+                  id=""
                   label="Company Name"
                   name="Recruiter"
                 />
+                </div>
+                <div>
                 <TextField
-                  margin="normal"
-                  fullWidth
-                  autoFocus
-                  variant="outlined"
-                  focused
                   required
                   id="phone"
                   label="Phone Number"
                   name="Recruiter"
                 />
                 <TextField
-                  margin="normal"
-                  fullWidth
-                  autoFocus
-                  variant="outlined"
-                  focused
                   required
-                  id="email"
+                  id=""
                   label="Email"
                   name="Recruiter"
                 />
+                </div>
                 <TextField
-                  margin="normal"
-                  fullWidth
-                  autoFocus
-                  variant="outlined"
-                  focused
-                  id="password"
+                  id=""
                   label="Password"
                   type="password"
                   autoComplete="current-password"
                 />
                 <TextField
-                  margin="normal"
-                  fullWidth
-                  autoFocus
-                  variant="outlined"
-                  focused
-                  id="password-confirm"
+                  id=""
                   label="Confirm password"
                   type="password"
                   autoComplete="current-password"
                 />
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  color="success"
-                  sx={{ mt: 3, mb: 2 }}
-                >
+                <div>
+                <Button className='buttons' sx={ { m: 3 } } variant="contained">
                   Sign Up
                 </Button>
+                </div>
               </div>
+              </Paper>
             </Box>
-          </Box>
         </Grid>
       </Container>
-    </Paper>
   );
 }
