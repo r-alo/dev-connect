@@ -121,7 +121,7 @@ export default function RecruiterForm() {
                   color="success"
                   sx={{ mt: 3, mb: 2 }}
                 >
-                  Sign In
+                  Sign Up
                 </Button>
               </div>
             </Box>
