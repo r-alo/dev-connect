@@ -10,3 +10,14 @@ export const LOGIN = gql`
         }
     }
 `;
+
+export const ADD_FREELANCER = gql`
+    mutation addFreelancer($email: String!, $password: String!) {
+        addFreelancer(email: $email, password: $password) {
+            token
+            freelancer {
+            email
+            }
+        }
+    }
+`;
