@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button, Container } from '@mui/material';
 import Typography from '@mui/material/Typography';
-import NavBar from '../components/navBar';
 
 
 export default function LandingPage() {
