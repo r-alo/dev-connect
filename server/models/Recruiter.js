@@ -33,8 +33,9 @@ const recruiterSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    type: {type: String,
-    default: 'recruiter'
+    type: {
+        type: String,
+        default: 'recruiter'
     },
 });
 

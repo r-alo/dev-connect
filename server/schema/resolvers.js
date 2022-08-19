@@ -38,15 +38,13 @@ const resolvers = {
         addFreelancer: async (parent, { firstName, lastName, phone, github, company, email, password, languages, frameworks, platforms }) => {
             const freelancer = await Freelancer.create({ firstName, lastName, phone, github, company, email, password, languages, frameworks, platforms });
             const token = signToken(freelancer);
-        
             return { token, freelancer };
         },
 
         addRecruiter: async (parent, { firstName, lastName, phone, company, email, password }) => {
           const recruiter = await Recruiter.create({ firstName, lastName, phone, company, email, password });
+          console.log(recruiter)
           const token = signToken(recruiter);
-      
-      
           return { token, recruiter };
         },
 

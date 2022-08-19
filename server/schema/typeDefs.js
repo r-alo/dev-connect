@@ -45,7 +45,7 @@ const typeDefs = gql`
         email: String!
         phone: String!
         password: String!
-        type: String!
+        type: String
     }
 
     type Auth {
@@ -68,8 +68,8 @@ const typeDefs = gql`
 
     type Mutation {
         addLanguageTypeScript: Language
-        addFreelancer( firstName: String!, lastName: String!, phone: String!, github: String!, company: String!, email: String!, password: String!, language: [String!], framework: [String!], platform: [String!]): Freelancer
-        addRecruiter(firstName: String!, lastName: String!, phone: String!, company: String!, email: String!, password: String!): Recruiter
+        addFreelancer( firstName: String!, lastName: String!, phone: String!, github: String!, company: String!, email: String!, password: String!, language: [String!], framework: [String!], platform: [String!]): Auth
+        addRecruiter(firstName: String!, lastName: String!, phone: String!, company: String!, email: String!, password: String!): Auth
         loginFreelancer(email: String!, password: String!): Auth
         loginRecruiter(email: String!, password: String!): Auth
         addLanguage(_id: ID!, language: String!): Freelancer

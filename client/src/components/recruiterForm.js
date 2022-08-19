@@ -31,7 +31,7 @@ export default function RecruiterForm() {
       const { data } = await addRecruiter({
           variables: { ...recruiter },
       });
-      Auth.loginRecruiter(data.loginFreelancer.token);
+      Auth.loginRecruiter(data.addRecruiter.token);
       } catch (e) {
       console.error(e);
       }
