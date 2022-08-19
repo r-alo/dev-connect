@@ -13,7 +13,8 @@ export default function LandingPage() {
             Welcome to the best professional network where you can find the best developers 
             and the most renewed companies from all around the world.
           </Typography>
-          <Link to="/signup" >
+          <Link to="/signup" 
+          style={{textDecoration: 'none'}}>
           <Button
           text align= "right"
           gutterBottom
