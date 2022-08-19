@@ -50,6 +50,7 @@ function App() {
             <Route path="/highlight" element={ <FreelanceHighlight /> } />
             <Route path="/recruiterForm" element={<RecruiterForm />} />
             <Route path="/home" element={<LandingPage />} />
+            <Route path="/signup-freelance" element={ <TemplateForm /> } />
           </Routes>
         </div>
       </BrowserRouter>

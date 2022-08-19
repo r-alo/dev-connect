@@ -7,6 +7,8 @@ import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormHelperText from "@mui/material/FormHelperText";
 import Checkbox from "@mui/material/Checkbox";
+import NavBar from './navBar';
+import { Container, Grid } from '@mui/material';
 
 
 
@@ -33,6 +35,9 @@ const additionalKn = ["MVS", "Object-Oriented-Programming (OOP)", "Application P
 
   const { html, css, javascript } = state;
   return (
+    <Container>
+      <Grid>
+      <NavBar />
     <Box
       component="form"
       sx={{
@@ -142,5 +147,7 @@ const additionalKn = ["MVS", "Object-Oriented-Programming (OOP)", "Application P
       </FormControl>
       
     </Box>
+      </Grid>
+    </Container>
   );
 }
