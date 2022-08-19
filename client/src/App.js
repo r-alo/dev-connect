@@ -7,6 +7,7 @@ import LandingPage from './pages/LandingPage';
 import RecruiterProfile from './pages/recruiterProfile';
 import Signup from './pages/Signup';
 import NavBar from './components/navBar';
+import FreelancerForm from './components/FreelancerForm';
 
 // React Router
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -33,7 +34,7 @@ const client = new ApolloClient({
   link: concat(authLink, httpLink),
   cache: new InMemoryCache(),
 });
-
+//routes
 function App() {
   return (
     <ApolloProvider client={client}>
@@ -48,6 +49,7 @@ function App() {
             <Route path="/recruiter" element={<RecruiterProfile />} />
             <Route path="/highlight" element={ <FreelanceHighlight /> } />
             <Route path="/recruiterForm" element={<RecruiterForm />} />
+            <Route path="/freelancerForm" element={<FreelancerForm />} />
           </Routes>
         </div>
       </BrowserRouter>
