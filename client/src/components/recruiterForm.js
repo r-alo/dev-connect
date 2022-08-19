@@ -8,8 +8,34 @@ import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 
+import { useState } from 'react';
+import { useMutation } from '@apollo/client';
+import { ADD_RECRUITER } from '../utils/mutations';
+
+import Auth from '../utils/Auth';
 
 export default function RecruiterForm() {
+
+  const [recruiter, setRecruiter] = useState({})
+  const [addRecruiter, { loading, error, data }] = useMutation(ADD_RECRUITER);
+
+  const handleChange = (event) => {
+    console.log(event.target)
+    const { name, value } = event.target;
+    setRecruiter({ ...recruiter, [name]: value });
+  }
+
+  const handleClick = async () => {
+    console.log(recruiter)
+      try {
+      const { data } = await addRecruiter({
+          variables: { ...recruiter },
+      });
+      Auth.loginRecruiter(data.loginFreelancer.token);
+      } catch (e) {
+      console.error(e);
+      }
+  }
 
   return (
     <Container>
@@ -26,28 +52,30 @@ export default function RecruiterForm() {
 
           <Paper elevation={10}> 
             <Grid className='freelancer-form' align='center'>
-                <h2>Profile Form</h2>
+                <h2>Welcome! Please fill this Recruiter form!</h2>
             </Grid>
             <div>
                 <TextField
                   required
                   id=""
                   label="Name"
-                  name="Recruiter"
+                  name="firstName"
+                  onChange={handleChange}
                 />
                 <TextField
                   required
                   id=""
                   label="Surname"
-                  name="Recruiter"
+                  name="lastName"
+                  onChange={handleChange}
                 />
                 <div>
                 <TextField
                   required
                   id=""
                   label="Company Name"
-                  name="Recruiter"
-                   
+                  name="company"
+                  onChange={handleChange}
                 />
                 </div>
                 <div>
@@ -55,20 +83,24 @@ export default function RecruiterForm() {
                   required
                   id="phone"
                   label="Phone Number"
-                  name="Recruiter"
+                  name="phone"
+                  onChange={handleChange}
                 />
                 <TextField
                   required
                   id=""
                   label="Email"
-                  name="Recruiter"
+                  name="email"
+                  onChange={handleChange}
                 />
                 </div>
                 <TextField
                   id=""
                   label="Password"
                   type="password"
+                  name="password"
                   autoComplete="current-password"
+                  onChange={handleChange}
                 />
                 <TextField
                   id=""
@@ -77,7 +109,7 @@ export default function RecruiterForm() {
                   autoComplete="current-password"
                 />
                 <div>
-                <Button className='buttons' sx={ { m: 3 } } variant="contained">
+                <Button className='buttons' sx={ { m: 3 } } variant="contained" onClick={handleClick}>
                   Sign Up
                 </Button>
                 </div>

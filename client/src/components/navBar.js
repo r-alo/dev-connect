@@ -34,9 +34,13 @@ function NavBar (props) {
             {name: 'Home', url: '/'},
             {name: 'Sign In', url: '/signin'},
             {name: 'Sign Up', url: '/signup'}
-        ])
-        if (isLogged) setNavItems([
+        ]);
+        if (isLogged && Auth.getProfile().data.type === 'freelancer') setNavItems([
             {name: 'Home', url: '/profile'},
+            {name: 'Sign Out', url: '#'}
+        ]);
+        if (isLogged && Auth.getProfile().data.type === 'recruiter') setNavItems([
+            {name: 'Home', url: '/recruiter'},
             {name: 'Sign Out', url: '#'}
         ]);
     }, []);
@@ -45,7 +49,6 @@ function NavBar (props) {
         console.log(event);
         if (event.target.innerText === 'SIGN OUT') Auth.logout();
     }
-
 
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);

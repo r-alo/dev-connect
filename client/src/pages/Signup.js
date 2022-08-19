@@ -3,6 +3,8 @@ import { Grid, Paper, Button, InputLabel, Select, MenuItem, FormControl } from '
 import FreelancerForm from '../components/FreelancerForm';
 import RecruiterForm from '../components/RecruiterForm';
 
+import { Link } from 'react-router-dom';
+
 import { useMutation } from '@apollo/client';
 import Auth from '../utils/Auth';
 
@@ -39,7 +41,7 @@ export default function Signup() {
                         <MenuItem value={'recruiter'}>Recruiter</MenuItem>
                     </Select>
                 </FormControl>
-                <p>Already have an account? <a href='/login'>Log in</a></p>
+                <p>Already have an account? <Link to='/signin'>Sign In</Link></p>
             </Paper>
         </Grid>
     );

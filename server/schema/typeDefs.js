@@ -35,6 +35,7 @@ const typeDefs = gql`
         github: String!
         languages: [Language]
         password: String!
+        type: String!
     }
 
     type Recruiter {
@@ -44,6 +45,7 @@ const typeDefs = gql`
         email: String!
         phone: String!
         password: String!
+        type: String!
     }
 
     type Auth {
@@ -66,7 +68,7 @@ const typeDefs = gql`
 
     type Mutation {
         addLanguageTypeScript: Language
-        addProfile( firstName: String!, lastName: String!, phone: String!, github: String!, company: String!, email: String!, password: String!, language: [String!], framework: [String!], platform: [String!]): Freelancer
+        addFreelancer( firstName: String!, lastName: String!, phone: String!, github: String!, company: String!, email: String!, password: String!, language: [String!], framework: [String!], platform: [String!]): Freelancer
         addRecruiter(firstName: String!, lastName: String!, phone: String!, company: String!, email: String!, password: String!): Recruiter
         loginFreelancer(email: String!, password: String!): Auth
         loginRecruiter(email: String!, password: String!): Auth

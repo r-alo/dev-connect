@@ -35,19 +35,19 @@ const resolvers = {
         //     return await Language.create({language: 'TypeScript'})
         // },
 
-        addProfile: async (parent, { firstName, lastName, phone, github, company, email, password, languages, frameworks, platforms }) => {
-            const profile = await Freelancer.create({ firstName, lastName, phone, github, company, email, password, languages, frameworks, platforms });
-            const token = signToken(profile);
+        addFreelancer: async (parent, { firstName, lastName, phone, github, company, email, password, languages, frameworks, platforms }) => {
+            const freelancer = await Freelancer.create({ firstName, lastName, phone, github, company, email, password, languages, frameworks, platforms });
+            const token = signToken(freelancer);
         
-            return profile ;
+            return { token, freelancer };
         },
 
         addRecruiter: async (parent, { firstName, lastName, phone, company, email, password }) => {
-          const profile = await Recruiter.create({ firstName, lastName, phone, company, email, password });
-          const token = signToken(profile);
+          const recruiter = await Recruiter.create({ firstName, lastName, phone, company, email, password });
+          const token = signToken(recruiter);
       
       
-          return profile ;
+          return { token, recruiter };
         },
 
         loginFreelancer: async (parent, { email, password }) => {
