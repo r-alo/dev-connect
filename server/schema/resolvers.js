@@ -1,4 +1,4 @@
-const { Freelancer, Language, Framework, Platform, Knowledge } = require('../models');
+const { Freelancer, Language, Framework, Platform, Knowledge, Recruiter } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 
@@ -13,6 +13,9 @@ const resolvers = {
         language: async () => {
             return await Language.find({});
         },
+        // nickname: async () => {
+        //   return await Nickname.find({});
+        // },
         framework: async () => {
             return await Framework.find({});
         },
@@ -38,22 +41,64 @@ const resolvers = {
         
             return profile ;
         },
-        login: async (parent, { email, password }) => {
-            const profile = await Freelancer.findOne({ email });
+
+        addRecruiter: async (parent, { firstName, lastName, phone, company, email, password }) => {
+          const profile = await Recruiter.create({ firstName, lastName, phone, company, email, password });
+          const token = signToken(profile);
       
-            if (!profile) {
-              throw new AuthenticationError('No profile with this email found!');
+      
+          return profile ;
+        },
+
+        loginFreelancer: async (parent, { email, password }) => {
+            const freelancer = await Freelancer.findOne({ email });
+      
+            if (!freelancer) {
+              throw new AuthenticationError('No freelancer with this email found!');
             }
       
-            const correctPw = await profile.isCorrectPassword(password);
+            const correctPw = await freelancer.isCorrectPassword(password);
       
             if (!correctPw) {
               throw new AuthenticationError('Incorrect password!');
             }
       
-            const token = signToken(profile);
-            return { token, profile };
-          },
+            const token = signToken(freelancer);
+            return { token, freelancer };
+        },
+
+        loginRecruiter: async (parent, { email, password }) => {
+          const recruiter = await Recruiter.findOne({ email });
+          console.log(recruiter)
+    
+          if (!recruiter) {
+            throw new AuthenticationError('No recruiter with this email found!');
+          }
+    
+          const correctPw = await recruiter.isCorrectPassword(password);
+    
+          if (!correctPw) {
+            throw new AuthenticationError('Incorrect password!');
+          }
+    
+          const token = signToken(recruiter);
+          return { token, recruiter };
+        },
+
+        addLanguage: async (parent, { _id, language }) => {
+
+            return Freelancer.findOneAndUpdate(
+              { _id: _id },
+              {
+                $addToSet:[{languages: language}],
+              },
+              {
+                new: true,
+                runValidators: true,
+              }
+            );
+        },
+
     }
 }
 
