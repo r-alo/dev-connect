@@ -5,6 +5,7 @@ const { languageSchema } = require('./Languages');
 const { frameworkSchema } = require('./Frameworks');
 const { platformSchema } = require('./Platforms');
 const { knowledgeSchema } = require('./Knowledge');
+// const { nicknameSchema } = require('./Nickname');
 
 const freelancerSchema = mongoose.Schema({
     firstName: {
@@ -42,6 +43,10 @@ const freelancerSchema = mongoose.Schema({
         type: String,
         required: true,
     },
+    type: {type: String,
+    default: 'freelancer'
+    },
+    // nickname: [nicknameSchema],
     languages: [languageSchema],
     frameworks: [frameworkSchema],
     platforms: [platformSchema],
