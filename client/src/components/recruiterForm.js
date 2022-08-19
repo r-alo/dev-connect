@@ -43,11 +43,11 @@ export default function RecruiterForm() {
                 />
                 <div>
                 <TextField
-                  
                   required
                   id=""
                   label="Company Name"
                   name="Recruiter"
+                   
                 />
                 </div>
                 <div>
