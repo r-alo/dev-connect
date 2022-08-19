@@ -3,19 +3,20 @@ import React, { useState } from 'react'
 import { Grid, Paper, TextField, Button, InputLabel, Select, MenuItem, FormControl } from '@mui/material'
 
 import { useMutation } from '@apollo/client';
-import { LOGIN_FREELANCER } from '../utils/mutations';
+import { LOGIN_FREELANCER, LOGIN_RECRUITER } from '../utils/mutations';
 import Auth from '../utils/Auth';
 
 export default function Login() {
 
     //for menu
     const [type, setType] = useState('');
-    const handleChange2 = (event) => {
+    const handleChangeType = (event) => {
         setType(event.target.value);
     };
 
     const [formState, setFormState] = useState({ email: '', password: '' });
-    const [login, { data, loading, error }] = useMutation(LOGIN_FREELANCER);
+    const [loginFreelancer, { data: dataFreelancer, loading: loadingFreelancer, error: errorFreelancer }] = useMutation(LOGIN_FREELANCER);
+    const [loginRecruiter, { data: dataRecruiter, loading: loadingRecruiter, error: errorRecruiter }] = useMutation(LOGIN_RECRUITER);
 
      // update state based on form input changes
     const handleChange = (event) => {
@@ -30,15 +31,26 @@ export default function Login() {
     const handleFormSubmit = async (event) => {
         event.preventDefault();
         console.log(formState);
-        try {
-        const { data } = await login({
-            variables: { ...formState },
-        }); 
-
-        Auth.loginFreelancer(data.loginFreelancer.token);
-        } catch (e) {
-        console.error(e);
-        }
+        if (type === 'freelancer') {
+            try {
+            const { data } = await loginFreelancer({
+                variables: { ...formState },
+            }); 
+            Auth.loginFreelancer(data.loginFreelancer.token);
+            } catch (e) {
+            console.error(e);
+            }
+        };
+        if (type === 'recruiter') {
+            try {
+            const { data } = await loginRecruiter({
+                variables: { ...formState },
+            }); 
+            Auth.loginRecruiter(data.loginRecruiter.token);
+            } catch (e) {
+            console.error(e);
+            }
+        };
 
         // clear form values
         setFormState({
@@ -59,7 +71,7 @@ export default function Login() {
                         labelId="demo-simple-select-standard-label"
                         id="demo-simple-select-standard"
                         value={type}
-                        onChange={handleChange2}
+                        onChange={handleChangeType}
                         label="type"
                     >
                         <MenuItem value={'freelancer'}>Freelancer</MenuItem>
