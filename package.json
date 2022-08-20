@@ -11,9 +11,9 @@
     "heroku-postbuild": "cd client && npm install && npm run build",
     "server": "nodemon server.js",
     "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\"",
-    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\""
+    "start": "node server/server.js --ignore client"
   },
-  
+
   "author": "",
   "license": "ISC",
   "devDependencies": {
