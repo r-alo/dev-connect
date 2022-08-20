@@ -8,7 +8,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import { Container, Grid, Paper, Button } from '@mui/material';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_FREELANCER } from '../utils/mutations';
 import Auth from '../utils/Auth';
@@ -16,34 +16,86 @@ import Auth from '../utils/Auth';
 export default function FreelancerForm() {
 
   const [freelancer, setFreelancer] = useState({});
+  const [languages, setLanguages] = useState([]);
+  const [frameworks, setFrameworks] = useState([]);
+  const [platforms, setPlatforms] = useState([]);
+  const [knowledge, setKnowledge] = useState([]);
+
   const [addFreelancer, { loading, error, data }] = useMutation(ADD_FREELANCER);
 
   const handleChange = (event) => {
     console.log(event.target)
     const { name, value } = event.target;
     setFreelancer({ ...freelancer, [name]: value });
-  }
+    console.log(freelancer);
+  };
+  
+  const handleChangeLanguages = (event) => {
+    let array = languages;
+    if (event.target.checked) {
+      array.push({language: event.target.name});
+      setLanguages(array)
+    }
+    if (!event.target.checked) {
+      let newArray = array.filter(item => item.language !== event.target.name);
+      setLanguages(newArray)
+    }
+  };
+
+  const handleChangeFrameworks = (event) => {
+    let array = frameworks;
+    if (event.target.checked) {
+      array.push({framework: event.target.name});
+      setFrameworks(array)
+    }
+    if (!event.target.checked) {
+      let newArray = array.filter(item => item.framework !== event.target.name);
+      setFrameworks(newArray)
+    }
+  };
+
+  const handleChangePlatforms = (event) => {
+    let array = platforms;
+    if (event.target.checked) {
+      array.push({platform: event.target.name});
+      setPlatforms(array)
+    }
+    if (!event.target.checked) {
+      let newArray = array.filter(item => item.platform !== event.target.name);
+      setPlatforms(newArray)
+    }
+  };
+
+  const handleChangeKnowledge = (event) => {
+    let array = knowledge;
+    if (event.target.checked) {
+      array.push({knowledge: event.target.name});
+      setKnowledge(array)
+    }
+    if (!event.target.checked) {
+      let newArray = array.filter(item => item.knowledge !== event.target.name);
+      setKnowledge(newArray)
+    }
+  };
 
   const handleClick = async () => {
+    try {
+    setFreelancer({...freelancer, languages, frameworks, platforms, knowledge})
     console.log(freelancer)
-      try {
-      const { data } = await addFreelancer({
-          variables: { ...freelancer },
-      });
-      Auth.loginFreelancer(data.addFreelancer.token);
-      } catch (e) {
-      console.error(e);
-      }
+    const { data } = await addFreelancer({
+        variables: { ...freelancer },
+    });
+    Auth.loginFreelancer(data.addFreelancer.token);
+    } catch (e) {
+    console.error(e);
+    }
   }
 
+const languagesArr = ["HTML", "CSS", "Javascript", "TypeScript", "My SQL", "MongoDB", "SASS"];
+const frameworksArr = ["React.js", "Bootstrap", "jQuery", "Express.js", "Sequelize.js", "Mongoose.js", "Inquirer", "Tailwind", "Jest"];
+const platformsArr = ["Heroku", "GitHub", "GitLab", "Node.js", "StackOverFlow", "Postman"];
+const additionalKnArr = ["MVS", "Object-Oriented-Programming (OOP)", "Application Programming Interfaces (API)", "TDD", "Progressive Web Applications (PWA)", "Git", "Visual Studio Code"];
 
-const languages = ["HTML", "CSS", "Javascript", "TypeScript", "My SQL", "MongoDB", "SASS"];
-const frameworks = ["React.js", "Bootstrap", "jQuery", "Express.js", "Sequelize.js", "Mongoose.js", "Inquirer", "Tailwind", "Jest"];
-const platforms = ["Heroku", "GitHub", "GitLab", "Node.js", "StackOverFlow", "Postman"];
-const additionalKn = ["MVS", "Object-Oriented-Programming (OOP)", "Application Programming Interfaces (API)", "TDD", "Progressive Web Applications (PWA)", "Git", "Visual Studio Code"];
-
-//This is the form 
-  const { html, css, javascript } = state;
   return (
     <Container>
       <Grid>
@@ -122,13 +174,13 @@ const additionalKn = ["MVS", "Object-Oriented-Programming (OOP)", "Application P
             <div>
             <Grid>
             <div>
-            <FormControl sx={ { m: 3 } } component="fieldset" variant="standard" onChange={handleChange}>
+            <FormControl sx={ { m: 3 } } component="fieldset" variant="standard" onChange={handleChangeLanguages}>
               <FormLabel component="legend">Languages</FormLabel>
               <FormGroup>
                 {
-                  languages.map(item => (<FormControlLabel
+                  languagesArr.map(item => (<FormControlLabel
                     control={
-                      <Checkbox defaultChecked={ false } name={item} />
+                      <Checkbox defaultChecked={ false } name={item} key={item} />
                     }
                     label={item}
                   />))
@@ -136,13 +188,13 @@ const additionalKn = ["MVS", "Object-Oriented-Programming (OOP)", "Application P
               </FormGroup>
             </FormControl>
 
-            <FormControl sx={ { m: 3 } } component="fieldset" variant="standard">
+            <FormControl sx={ { m: 3 } } component="fieldset" variant="standard" onChange={handleChangeFrameworks}>
               <FormLabel component="legend">Libraries / Frameworks</FormLabel>
               <FormGroup>
               {
-                frameworks.map(item => (<FormControlLabel
+                frameworksArr.map(item => (<FormControlLabel
                   control={
-                    <Checkbox defaultChecked={ false } onChange={ handleChange } name={item} />
+                    <Checkbox defaultChecked={ false } name={item} key={item} />
                   }
                   label={item}
                 />))
@@ -150,13 +202,13 @@ const additionalKn = ["MVS", "Object-Oriented-Programming (OOP)", "Application P
               </FormGroup>
             </FormControl>
 
-            <FormControl sx={ { m: 3 } } component="fieldset" variant="standard">
+            <FormControl sx={ { m: 3 } } component="fieldset" variant="standard" onChange={handleChangePlatforms}>
               <FormLabel component="legend">Platforms</FormLabel>
               <FormGroup>
                 {
-                platforms.map(item => (<FormControlLabel
+                platformsArr.map(item => (<FormControlLabel
                   control={
-                    <Checkbox defaultChecked={ false } onChange={ handleChange } name={item} />
+                    <Checkbox defaultChecked={ false } name={item} key={item} />
                   }
                   label={item}
                 />))
@@ -165,13 +217,13 @@ const additionalKn = ["MVS", "Object-Oriented-Programming (OOP)", "Application P
             </FormControl>
             
 
-            <FormControl sx={ { m: 3 } } component="fieldset" variant="standard">
+            <FormControl sx={ { m: 3 } } component="fieldset" variant="standard" onChange={handleChangeKnowledge}>
               <FormLabel component="legend">Additional Knowledge</FormLabel>
               <FormGroup>
                 {
-                additionalKn.map(item => (<FormControlLabel
+                additionalKnArr.map(item => (<FormControlLabel
                   control={
-                    <Checkbox defaultChecked={ false } onChange={ handleChange } name={item} />
+                    <Checkbox defaultChecked={ false } name={item} key={item} />
                   }
                   label={item}
                 />))
