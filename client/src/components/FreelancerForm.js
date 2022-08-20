@@ -83,7 +83,7 @@ export default function FreelancerForm() {
     setFreelancer({...freelancer, languages, frameworks, platforms, knowledge})
     console.log(freelancer)
     const { data } = await addFreelancer({
-        variables: { ...freelancer },
+        variables: freelancer,
     });
     Auth.loginFreelancer(data.addFreelancer.token);
     } catch (e) {
