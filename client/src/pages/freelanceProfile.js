@@ -1,9 +1,10 @@
+//React & MUI Imports
 import { Grid, Container, Avatar, Card, CardContent, Typography, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, ImageList, ImageListItem, ListSubheader, ImageListItemBar, IconButton } from '@mui/material';
 import { deepOrange } from '@mui/material/colors';
 
 // Apollo Client
 import { useQuery } from '@apollo/client';
-import { GET_FREELANCERS } from '../utils/queries';
+import { ME } from '../utils/queries';
 
 
 function FreelanceProfile() {
@@ -82,8 +83,9 @@ function FreelanceProfile() {
     ];
 
     // Get data from GraphQL
-    const { loading, error, data } = useQuery(GET_FREELANCERS);
+    const { loading, error, data } = useQuery(ME);
     if (loading) return (<></>);
+    if (error) return (<h1>{error.message}</h1>)
     console.log(data);
 
     return (
@@ -93,11 +95,11 @@ function FreelanceProfile() {
                 <Grid xs={8}>
                     <Card sx={{ minWidth: 275 }}>
                         <CardContent>
-                            <h1>Developer profile</h1>
-                            <p><strong>Name: </strong>{data.freelancer[0].firstName}</p>
-                            <p><strong>Mail: </strong>{data.freelancer[0].email}</p>
-                            <p><strong>Phone: </strong>{data.freelancer[0].phone}</p>
-                            <p><strong>Github: </strong>{data.freelancer[0].github}</p>
+                            <h1>{data.me.firstName}'s Profile</h1>
+                            <p><strong>Name: </strong>{data.me.firstName} {data.me.lastName}</p>
+                            <p><strong>Mail: </strong>{data.me.email}</p>
+                            <p><strong>Phone: </strong>{data.me.phone}</p>
+                            <p><strong>Github: </strong>{data.me.github}</p>
                         </CardContent>
                     </Card>
                 </Grid>
@@ -109,12 +111,47 @@ function FreelanceProfile() {
                             <TableCell>Languages</TableCell>
                             <TableCell align="right">Frameworks</TableCell>
                             <TableCell align="right">Platforms</TableCell>
-                            <TableCell align="right">Aditional</TableCell>
+                            <TableCell align="right">Knowledge</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         <TableRow>
-
+                            <TableCell>
+                                {(() => {
+                                    if (data.me.languages) {
+                                        data.me.languages.map((value) => {
+                                            return (<p key={value._id}>{value.language}</p>);
+                                        })
+                                    }
+                                })}
+                            </TableCell>
+                            <TableCell>
+                                {(() => {
+                                    if (data.me.frameworks) {
+                                        data.me.frameworks.map((value) => {
+                                            return (<p key={value._id}>{value.framework}</p>);
+                                        })
+                                    }
+                                })}
+                            </TableCell>
+                            <TableCell>
+                                {(() => {
+                                    if (data.me.platforms) {
+                                        data.me.platforms.map((value) => {
+                                            return (<p key={value._id}>{value.platform}</p>);
+                                        })
+                                    }
+                                })}
+                            </TableCell>
+                            <TableCell>
+                                {(() => {
+                                    if (data.me.knowledge) {
+                                        data.me.knowledge.map((value, i) => {
+                                            return <p>{value.knowledge}</p>
+                                        })
+                                    }
+                                })}
+                            </TableCell>
                         </TableRow>
                     </TableBody>
                 </Table>

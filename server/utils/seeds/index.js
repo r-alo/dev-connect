@@ -1,9 +1,11 @@
 const connection = require('../../config/connection');
-const { Freelancer, Language, Framework, Platform, Knowledge } = require('../../models');
-const { languages, frameworks, platforms, knowledge, freelancer } = require('./data');
+const { Freelancer, Language, Framework, Platform, Knowledge,} = require('../../models');
+const { languages, frameworks, platforms, knowledge, freelancer} = require('./data');
 
 const seedData = async () => {
     await connection();
+    // await Nickname.insertMany(nickname);
+    // console.log('########## NICKNAME SEEDED ##########');
     await Language.insertMany(languages);
     console.log('########## LANGUAGES SEEDED ##########');
     await Framework.insertMany(frameworks);

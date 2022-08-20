@@ -1,6 +1,8 @@
+//React & MUI Imports
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
 import { Container, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, Stack, TextField, Avatar, Button } from '@mui/material';
 import { deepOrange } from '@mui/material/colors';
+
 
 
 const filterOptions = createFilterOptions({
