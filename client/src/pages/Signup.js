@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Grid, Paper, Button, InputLabel, Select, MenuItem, FormControl } from '@mui/material'
 import FreelancerForm from '../components/FreelancerForm';
-import RecruiterForm from '../components/RecruiterForm';
+import RecruiterForm from '../components/recruiterForm';
 
 import { Link } from 'react-router-dom';
 
