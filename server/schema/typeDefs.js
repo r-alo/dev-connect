@@ -65,7 +65,7 @@ const typeDefs = gql`
         platform: [Platform]
         knowledge: [Knowledge]
         freelancers: [Freelancer]
-        # freelancer(profileId: ID!): Freelancer
+        freelancer(_id: ID!): Freelancer
 
     }
 
