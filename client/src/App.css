@@ -1,14 +1,10 @@
+body {
+    background-image: url("https://www.transparenttextures.com/patterns/vertical-cloth.png");
+}
 .App {
   text-align: center;
   color: white;
-  height: 100vh;
-  background-color: #e6f7fa;
-  background-image: url("https://www.transparenttextures.com/patterns/vertical-cloth.png");
-  min-height: 120vh;
-/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
- /* background-image: url("https://www.transparenttextures.com/patterns/axiom-pattern.png");*/
   font-family: 'Source Code Pro', monospace;
-/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
 .App-logo {
