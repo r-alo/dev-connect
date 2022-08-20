@@ -12,8 +12,8 @@ export const LOGIN_FREELANCER = gql`
 `;
 
 export const ADD_FREELANCER = gql`
-    mutation addFreelancer($email: String!, $password: String!) {
-        addFreelancer(email: $email, password: $password) {
+    mutation addFreelancer($firstName: String!, $lastName: String!, $phone: String!, $github: String!, $company: String!, $email: String!, $password: String!, $languages: [LanguageInput], $frameworks: [FrameworkInput], $platforms: [PlatformInput], $knowledge: [KnowledgeInput]) {
+        addFreelancer(firstName: $firstName, lastName: $lastName, phone: $phone, github: $github, company: $company, email: $email, password: $password, languages: $languages, frameworks: $frameworks, platforms: $platforms, knowledge: $knowledge) {
             token
             freelancer {
                 _id
