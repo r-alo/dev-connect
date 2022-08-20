@@ -13,6 +13,7 @@
     "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\"",
     "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\""
   },
+  
   "author": "",
   "license": "ISC",
   "devDependencies": {
