@@ -11,6 +11,160 @@ const filterOptions = createFilterOptions({
 });
 
 export default function RecruiterProfile() {
+    const data = [
+        {
+            _id: "1",
+            firstName: "Richard",
+            lastName: "Guarnieri",
+            email: "richard@mail.com",
+            phone: "5555",
+            github: "richard",
+            languages: [
+                {
+                    _id: "1",
+                    language: "HTML"
+                },
+                {
+                    _id: "2",
+                    language: "JS"
+                },
+                {
+                    _id: "3",
+                    language: "CSS"
+                },
+                {
+                    _id: "2",
+                    language: "JS"
+                }
+            ],
+            frameworks: [
+                {
+                    _id: "1",
+                    framework: "React"
+                },
+                {
+                    _id: "2",
+                    framework: "Express"
+                }
+            ],
+            platforms: [
+                {
+                    _id: "1",
+                    platform: "Heroku"
+                },
+                {
+                    _id: "2",
+                    platform: "Github"
+                }
+            ],
+            knowledge: [
+                {
+                    _id: "1",
+                    knowledge: "MVS"
+                },
+                {
+                    _id: "2",
+                    knowledge: "Git"
+                }
+            ],
+        },
+        {
+            _id: "2",
+            firstName: "Kevin",
+            lastName: "Ralo",
+            email: "Kevin@mail.com",
+            phone: "5555",
+            github: "Kevin",
+            languages: [
+                {
+                    _id: "1",
+                    language: "HTML"
+                },
+                {
+                    _id: "2",
+                    language: "JS"
+                }
+            ],
+            frameworks: [
+                {
+                    _id: "1",
+                    framework: "React"
+                },
+                {
+                    _id: "2",
+                    framework: "Express"
+                }
+            ],
+            platforms: [
+                {
+                    _id: "1",
+                    platform: "Heroku"
+                },
+                {
+                    _id: "2",
+                    platform: "Github"
+                }
+            ],
+            knowledge: [
+                {
+                    _id: "1",
+                    knowledge: "MVS"
+                },
+                {
+                    _id: "2",
+                    knowledge: "Git"
+                }
+            ],
+        },
+        {
+            _id: "3",
+            firstName: "Daniel",
+            lastName: "Lago",
+            email: "daniel@mail.com",
+            phone: "5555",
+            github: "Daniel",
+            languages: [
+                {
+                    _id: "1",
+                    language: "HTML"
+                },
+                {
+                    _id: "2",
+                    language: "JS"
+                }
+            ],
+            frameworks: [
+                {
+                    _id: "1",
+                    framework: "React"
+                },
+                {
+                    _id: "2",
+                    framework: "Express"
+                }
+            ],
+            platforms: [
+                {
+                    _id: "1",
+                    platform: "Heroku"
+                },
+                {
+                    _id: "2",
+                    platform: "Github"
+                }
+            ],
+            knowledge: [
+                {
+                    _id: "1",
+                    knowledge: "MVS"
+                },
+                {
+                    _id: "2",
+                    knowledge: "Git"
+                }
+            ],
+        }
+    ]
     return (
         <Container>
             <Stack className='recruiter-filter-container' spacing={2} sx={{ width: 500 }}>
@@ -63,6 +217,22 @@ export default function RecruiterProfile() {
                             />
                         )}
                     />
+                    <Autocomplete
+                        multiple
+                        id="size-small-standard-multi"
+                        size="small"
+                        options={knowledge}
+                        getOptionLabel={(option) => option.title}
+                        filterOptions={filterOptions}
+                        renderInput={(params) => (
+                            <TextField
+                                {...params}
+                                variant="standard"
+                                label="knowledge"
+                                placeholder="Object-Oriented-Programming (OOP)"
+                            />
+                        )}
+                    />
                 </div>
             </Stack>
             <TableContainer >
@@ -75,33 +245,34 @@ export default function RecruiterProfile() {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        <TableRow>
-                            <TableCell><Avatar sx={{ bgcolor: deepOrange[500] }}>N</Avatar></TableCell>
-                            <TableCell align="left">
-                                <p><strong>Name:</strong>dev name</p>
-                                <p><strong>Languages:</strong>PHP, JS, HTML</p>
-                                <p><strong>Experience:</strong>+3 years</p>
-                            </TableCell>
-                            <TableCell align="right"><Button variant="contained">Preview</Button></TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell><Avatar sx={{ bgcolor: deepOrange[500] }}>N</Avatar></TableCell>
-                            <TableCell align="left">
-                                <p><strong>Name:</strong>dev name</p>
-                                <p><strong>Languages:</strong>PHP, JS, HTML</p>
-                                <p><strong>Experience:</strong>+3 years</p>
-                            </TableCell>
-                            <TableCell align="right"><Button variant="contained">Preview</Button></TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell><Avatar sx={{ bgcolor: deepOrange[500] }}>N</Avatar></TableCell>
-                            <TableCell align="left">
-                                <p><strong>Name:</strong>dev name</p>
-                                <p><strong>Languages:</strong>PHP, JS, HTML</p>
-                                <p><strong>Experience:</strong>+3 years</p>
-                            </TableCell>
-                            <TableCell align="right"><Button variant="contained">Preview</Button></TableCell>
-                        </TableRow>
+                        {
+                            data.map((dev) => {
+                                return (
+                                    <TableRow>
+                                        <TableCell><Avatar sx={{ bgcolor: deepOrange[500] }}>{dev.firstName.charAt(0)}</Avatar></TableCell>
+                                        <TableCell align="left">
+                                            <p><strong>Name: </strong>{dev.firstName} {dev.lastName}</p>
+                                            <p><strong>Languages: </strong>
+                                                {dev.languages.map((value, index) => {
+                                                    return ((index ? ', ' : '') + value.language)
+                                                })}
+                                            </p>
+                                            <p><strong>Frameworks: </strong>
+                                                {dev.frameworks.map((value, index) => {
+                                                    return ((index ? ', ' : '') + value.framework)
+                                                })}
+                                            </p>
+                                            <p><strong>Knowledge: </strong>
+                                                {dev.knowledge.map((value, index) => {
+                                                    return ((index ? ', ' : '') + value.knowledge)
+                                                })}
+                                            </p>
+                                        </TableCell>
+                                        <TableCell align="right"><Button variant="contained" href={'/highlight/' + dev._id}>Preview</Button></TableCell>
+                                    </TableRow>
+                                )
+                            })
+                        }
                     </TableBody>
                 </Table>
             </TableContainer>
@@ -111,26 +282,43 @@ export default function RecruiterProfile() {
 
 // options
 const languajes = [
+    { title: 'HTML' },
+    { title: 'CSS' },
     { title: 'Javascript' },
-    { title: 'Python' },
-    { title: 'Java' },
-    { title: 'PHP' },
-    { title: 'C#' },
-    { title: 'C++' },
-    { title: 'Typescript' },
+    { title: 'TypeScript' },
+    { title: 'My SQL' },
+    { title: 'MongoDB' },
+    { title: 'SASS' },
 ]
-
 const frameworks = [
-    { title: "React" },
-    { title: "Angular" },
-    { title: "Express" },
+    { title: "React.js" },
+    { title: "Bootstrap" },
     { title: "jQuery" },
-    { title: "Node.js" }
+    { title: "Express.js" },
+    { title: "Sequelize.js" },
+    { title: "Mongoose.js" },
+    { title: "Inquirer" },
+    { title: "Tailwind" },
+    { title: "Jest" }
 ]
 
 const platforms = [
-    { title: "Github" },
+    { title: "Heroku" },
+    { title: "GitHub" },
+    { title: "GitLab" },
+    { title: "StackOverFlow" },
     { title: "VSCode" },
-    { title: "Postman" },
+    { title: "Postman" }
 ]
+const knowledge = [
+    { title: "MVS" },
+    { title: "Object-Oriented-Programming (OOP)" },
+    { title: "Application Programming Interfaces (API)" },
+    { title: "TDD" },
+    { title: "Progressive Web Applications (PWA)" },
+    { title: "Git" },
+    { title: "Visual Studio Code" }
+]
+
+
 

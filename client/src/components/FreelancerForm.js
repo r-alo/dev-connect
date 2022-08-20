@@ -43,7 +43,7 @@ const platforms = ["Heroku", "GitHub", "GitLab", "Node.js", "StackOverFlow", "Po
 const additionalKn = ["MVS", "Object-Oriented-Programming (OOP)", "Application Programming Interfaces (API)", "TDD", "Progressive Web Applications (PWA)", "Git", "Visual Studio Code"];
 
 //This is the form 
-  const { html, css, javascript } = state;
+  // const { html, css, javascript } = state;
   return (
     <Container>
       <Grid>
