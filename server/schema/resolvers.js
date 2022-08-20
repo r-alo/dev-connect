@@ -28,9 +28,9 @@ const resolvers = {
         freelancers: async () => {
             return await Freelancer.find({});
         },
-        // freelancer: async (parent, { profileId }) => {
-        //     return Freelancer.findOne({ _id: profileId });
-        //   },
+        freelancer: async (parent, { _id }) => {
+            return Freelancer.findOne({ _id: _id });
+          },
     },
 
     Mutation: {
