@@ -80,10 +80,11 @@ export default function FreelancerForm() {
 
   const handleClick = async () => {
     try {
-    setFreelancer({...freelancer, languages, frameworks, platforms, knowledge})
+    let object = {...freelancer, languages, frameworks, platforms, knowledge}
+    setFreelancer(object)
     console.log(freelancer)
     const { data } = await addFreelancer({
-        variables: freelancer,
+        variables: object,
     });
     Auth.loginFreelancer(data.addFreelancer.token);
     } catch (e) {
