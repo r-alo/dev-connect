@@ -22,3 +22,39 @@ export const LANGUAGE = gql`
         }
     }
 `;
+
+export const FREELANCER = gql`
+    query freelancer($id: ID!) {
+        freelancer(_id: $id) {
+            firstName
+            lastName
+            email
+            phone
+            github
+        }
+    }
+`;
+
+export const FREELANCERS = gql`
+    query freelancers {
+        freelancers {
+            _id
+            firstName
+            lastName
+            languages {
+                language
+            }
+            frameworks {
+                framework
+            }
+            platforms {
+                platform
+            }
+            knowledge {
+                knowledge
+            }
+        }
+    }
+
+`;
+
