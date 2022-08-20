@@ -6,6 +6,7 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
+import { useParams, Link } from 'react-router-dom';
 
 // Apollo Client
 import { useQuery } from '@apollo/client';
@@ -22,10 +23,11 @@ const Item = styled(Paper)(({ theme }) => ({
 function FreelanceHighlight () {
 
     // Get data from GraphQL
-    const { loading, error, data } = useQuery(ME);
-    if (loading) return (<></>);
-    if (error) return (<h1>{ error.message }</h1>)
-    console.log(data);
+    let { id } = useParams();
+    console.log(id);
+    // const { loading, data } = useQuery(QUERY_MATCHUPS, {
+    //     variables: { _id: id },
+    // });
 
 
     return (
@@ -35,11 +37,16 @@ function FreelanceHighlight () {
                 <Grid xs={ 8 }>
                     <Card sx={ { minWidth: 275 } }>
                         <CardContent>
-                            <h1>{ data.me.firstName }'s Profile</h1>
+                            {/* <h1>{ data.me.firstName }'s Profile</h1>
                             <p><strong>Name: </strong>{ data.me.firstName } { data.me.lastName }</p>
                             <p><strong>Mail: </strong>{ data.me.email }</p>
                             <p><strong>Phone: </strong>{ data.me.phone }</p>
-                            <p><strong>Github: </strong>{ data.me.github }</p>
+                            <p><strong>Github: </strong>{ data.me.github }</p> */}
+                            <h1>name's Profile</h1>
+                            <p><strong>Name: </strong>name</p>
+                            <p><strong>Mail: </strong>mail</p>
+                            <p><strong>Phone: </strong>phone</p>
+                            <p><strong>Github: </strong>github</p>
                         </CardContent>
                     </Card>
                 </Grid>
@@ -55,6 +62,9 @@ function FreelanceHighlight () {
             <br/>
             <Button variant="contained" disableElevation>
                 View Full Profile
+            </Button>
+            <Button sx={ {margin: 5 } } href='/recruiter' variant="contained" disableElevation>
+                Return
             </Button>
         </Container>
     )
