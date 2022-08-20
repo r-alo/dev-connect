@@ -1,5 +1,14 @@
 .App {
   text-align: center;
+  color: white;
+  height: 100vh;
+  background-color: #e6f7fa;
+  background-image: url("https://www.transparenttextures.com/patterns/vertical-cloth.png");
+  min-height: 120vh;
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+ /* background-image: url("https://www.transparenttextures.com/patterns/axiom-pattern.png");*/
+  font-family: 'Source Code Pro', monospace;
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
 .App-logo {
@@ -15,7 +24,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 120vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,18 +37,30 @@
   color: #61dafb;
 }
 
+.body {
+  margin-top: 4rem;
+  width: 100%; 
+  overflow: hidden;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 30px;
+}
+
 .container-profile{
   margin-top: 20px;
 }
 
 .recruiter-filter-container {
   margin: 3% auto 0% auto;
+  background-color: white;
+  border-radius: 10px;
 }
 
 .recruiter-filter-container div.container{
   border: 1px solid #e1e1e1;
     border-radius: 10px;
     padding: 25px;
+    background-color: white;
 }
 .log-in{
   padding: 2%;
@@ -50,7 +71,7 @@
 .sign-up{
   padding: 2%;
   height: 70vh;
-  width: 90vw;
+  max-width: 280px;
   margin: 20px auto;
 }
 
@@ -61,6 +82,7 @@
 
 .table-head {
   border-bottom: 2px solid rgba(224, 224, 224, 1);
+  color: white;
 }
 
 .grid-profile {
@@ -94,8 +116,12 @@
 }
 
 .container-home {
-  text-align: left;
-  margin: 35px;
+  padding: 2%;
+  font-size: 40px;
+}
+
+.container-home p {
+  font-size: 30px;
 }
 
 .summary {
@@ -103,11 +129,13 @@
 }
 
 .create-profile {
-  background: rgb(94, 201, 211);
-  color: white;
-  font-size: 40px;
-  padding: 3%;
+  font-size: 30px;
   text-align: center;
+  margin-top: 4rem;
+}
+
+.create-profile p {
+  font-size: 20px;
 }
 
 .buttons {
