@@ -57,7 +57,6 @@ const typeDefs = gql`
         freelancer: Freelancer
       }
 
-
     type Query {
         me: Freelancer
         nickname: [Nickname]

@@ -5,6 +5,7 @@ import { Grid, Paper, TextField, Button, InputLabel, Select, MenuItem, FormContr
 import { useMutation } from '@apollo/client';
 import { LOGIN_FREELANCER, LOGIN_RECRUITER } from '../utils/mutations';
 import Auth from '../utils/Auth';
+import { Link } from 'react-router-dom';
 
 export default function Login() {
 
@@ -81,7 +82,7 @@ export default function Login() {
                 <TextField className='log-in-input' label='email' placeholder='Email' name='email' value={formState.email} onChange={handleChange} fullWidth required/>
                 <TextField className='log-in-input' label='password' placeholder='Password' type='password' name='password' value={formState.password} onChange={handleChange} fullWidth required/>
                 <Button type='submit' color='primary' variant="contained" fullWidth onClick={handleFormSubmit}>Sign in</Button>
-                <p>Dont have an account? <a href='/signup'>Sign up</a></p>
+                <p>Dont have an account? <Link to='/signup'>Sign up</Link></p>
             </Paper>
         </Grid>
     );
