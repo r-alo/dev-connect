@@ -1,5 +1,10 @@
+body {
+    background-image: url("https://www.transparenttextures.com/patterns/vertical-cloth.png");
+}
 .App {
   text-align: center;
+  color: white;
+  font-family: 'Source Code Pro', monospace;
 }
 
 .App-logo {
@@ -15,7 +20,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 120vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,6 +31,122 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.body {
+  margin-top: 4rem;
+  width: 100%; 
+  overflow: hidden;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 30px;
+}
+
+.container-profile{
+  margin-top: 20px;
+}
+
+.recruiter-filter-container {
+  margin: 3% auto 0% auto;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.recruiter-table {
+  margin-top: 20px;
+}
+.recruiter-table td, .recruiter-table th  {
+  color: white !important;
+}
+
+.recruiter-filter-container div.container{
+  border: 1px solid #e1e1e1;
+    border-radius: 10px;
+    padding: 25px;
+    background-color: white;
+}
+.log-in{
+  padding: 2%;
+  height: 70vh;
+  max-width: 280px;
+  margin: 20px auto;
+}
+.sign-up{
+  padding: 2%;
+  height: 70vh;
+  max-width: 280px;
+  margin: 20px auto;
+}
+
+
+.log-in-input {
+  margin-bottom: 10px !important;
+}
+
+.table-head {
+  border-bottom: 2px solid rgba(224, 224, 224, 1);
+  color: white;
+}
+
+.grid-profile {
+  align-items: center !important;
+}
+
+.nav-bar {
+  margin-bottom: 80px;
+  text-align: left;
+}
+
+.freelancer-form {
+  padding-top: 1rem;
+  align-content: center;
+}
+
+.buttons {
+  text-align: center;
+  font-size: medium;
+  background-color: solid #0a5996;
+  color: white;
+  border-radius: 8px;
+}
+
+.buttons {
+  text-align: center;
+  font-size: medium;
+  background-color: solid #0a5996;
+  color: white;
+  border-radius: 8px;
+}
+
+.container-home {
+  padding: 2%;
+  font-size: 40px;
+}
+
+.container-home p {
+  font-size: 30px;
+}
+
+.summary {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.create-profile {
+  font-size: 30px;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.create-profile p {
+  font-size: 20px;
+}
+
+.buttons {
+  text-align: center;
+  font-size: medium;
+  background-color: solid #0a5996;
+  color: white;
+  border-radius: 8px;
 }
 
 @keyframes App-logo-spin {
