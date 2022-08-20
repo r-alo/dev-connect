@@ -22,6 +22,9 @@ const resolvers = {
         platform: async () => {
             return await Platform.find({});
         },
+        knowledge: async () => {
+          return await Knowledge.find({});
+        },
         freelancers: async () => {
             return await Freelancer.find({});
         },
@@ -35,8 +38,8 @@ const resolvers = {
         //     return await Language.create({language: 'TypeScript'})
         // },
 
-        addFreelancer: async (parent, { firstName, lastName, phone, github, company, email, password, languages, frameworks, platforms }) => {
-            const freelancer = await Freelancer.create({ firstName, lastName, phone, github, company, email, password, languages, frameworks, platforms });
+        addFreelancer: async (parent, { firstName, lastName, phone, github, company, email, password, languages, frameworks, platforms, knowledge }) => {
+            const freelancer = await Freelancer.create({ firstName, lastName, phone, github, company, email, password, languages, frameworks, platforms,knowledge });
             const token = signToken(freelancer);
             return { token, freelancer };
         },
