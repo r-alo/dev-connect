@@ -15,168 +15,12 @@ const filterOptions = createFilterOptions({
 
 export default function RecruiterProfile() {
     const { loading, data } = useQuery(FREELANCERS);
-    // const { loading, data } = useQuery(FREELANCER, {
-    //     variables: { id: "62fed048511b84d19b992884" },
-    // });
     if(loading){
         return <h2>Loading...</h2>
     }
     console.log(data);
     
-    // const data = [
-    //     {
-    //         _id: "1",
-    //         firstName: "Richard",
-    //         lastName: "Guarnieri",
-    //         email: "richard@mail.com",
-    //         phone: "5555",
-    //         github: "richard",
-    //         languages: [
-    //             {
-    //                 _id: "1",
-    //                 language: "HTML"
-    //             },
-    //             {
-    //                 _id: "2",
-    //                 language: "JS"
-    //             },
-    //             {
-    //                 _id: "3",
-    //                 language: "CSS"
-    //             },
-    //             {
-    //                 _id: "2",
-    //                 language: "JS"
-    //             }
-    //         ],
-    //         frameworks: [
-    //             {
-    //                 _id: "1",
-    //                 framework: "React"
-    //             },
-    //             {
-    //                 _id: "2",
-    //                 framework: "Express"
-    //             }
-    //         ],
-    //         platforms: [
-    //             {
-    //                 _id: "1",
-    //                 platform: "Heroku"
-    //             },
-    //             {
-    //                 _id: "2",
-    //                 platform: "Github"
-    //             }
-    //         ],
-    //         knowledge: [
-    //             {
-    //                 _id: "1",
-    //                 knowledge: "MVS"
-    //             },
-    //             {
-    //                 _id: "2",
-    //                 knowledge: "Git"
-    //             }
-    //         ],
-    //     },
-    //     {
-    //         _id: "2",
-    //         firstName: "Kevin",
-    //         lastName: "Ralo",
-    //         email: "Kevin@mail.com",
-    //         phone: "5555",
-    //         github: "Kevin",
-    //         languages: [
-    //             {
-    //                 _id: "1",
-    //                 language: "HTML"
-    //             },
-    //             {
-    //                 _id: "2",
-    //                 language: "JS"
-    //             }
-    //         ],
-    //         frameworks: [
-    //             {
-    //                 _id: "1",
-    //                 framework: "React"
-    //             },
-    //             {
-    //                 _id: "2",
-    //                 framework: "Express"
-    //             }
-    //         ],
-    //         platforms: [
-    //             {
-    //                 _id: "1",
-    //                 platform: "Heroku"
-    //             },
-    //             {
-    //                 _id: "2",
-    //                 platform: "Github"
-    //             }
-    //         ],
-    //         knowledge: [
-    //             {
-    //                 _id: "1",
-    //                 knowledge: "MVS"
-    //             },
-    //             {
-    //                 _id: "2",
-    //                 knowledge: "Git"
-    //             }
-    //         ],
-    //     },
-    //     {
-    //         _id: "3",
-    //         firstName: "Daniel",
-    //         lastName: "Lago",
-    //         email: "daniel@mail.com",
-    //         phone: "5555",
-    //         github: "Daniel",
-    //         languages: [
-    //             {
-    //                 _id: "1",
-    //                 language: "HTML"
-    //             },
-    //             {
-    //                 _id: "2",
-    //                 language: "JS"
-    //             }
-    //         ],
-    //         frameworks: [
-    //             {
-    //                 _id: "1",
-    //                 framework: "React"
-    //             },
-    //             {
-    //                 _id: "2",
-    //                 framework: "Express"
-    //             }
-    //         ],
-    //         platforms: [
-    //             {
-    //                 _id: "1",
-    //                 platform: "Heroku"
-    //             },
-    //             {
-    //                 _id: "2",
-    //                 platform: "Github"
-    //             }
-    //         ],
-    //         knowledge: [
-    //             {
-    //                 _id: "1",
-    //                 knowledge: "MVS"
-    //             },
-    //             {
-    //                 _id: "2",
-    //                 knowledge: "Git"
-    //             }
-    //         ],
-    //     }
-    // ]
+    
     return (
         <Container>
             <Stack className='recruiter-filter-container' spacing={2} sx={{ width: 500 }}>
@@ -247,7 +91,7 @@ export default function RecruiterProfile() {
                     />
                 </div>
             </Stack>
-            <TableContainer >
+            <TableContainer className='recruiter-table'>
                 <Table >
                     <TableHead className='table-head'>
                         <TableRow>

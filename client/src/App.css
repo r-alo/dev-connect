@@ -52,6 +52,13 @@ body {
   border-radius: 10px;
 }
 
+.recruiter-table {
+  margin-top: 20px;
+}
+.recruiter-table td, .recruiter-table th  {
+  color: white !important;
+}
+
 .recruiter-filter-container div.container{
   border: 1px solid #e1e1e1;
     border-radius: 10px;

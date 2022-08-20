@@ -104,19 +104,19 @@ function FreelanceProfile() {
                     </Card>
                 </Grid>
             </Grid>
-            <TableContainer >
+            <TableContainer className='recruiter-table'>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell>Languages</TableCell>
-                            <TableCell align="right">Frameworks</TableCell>
-                            <TableCell align="right">Platforms</TableCell>
-                            <TableCell align="right">Knowledge</TableCell>
+                            <TableCell align='center'>Languages</TableCell>
+                            <TableCell align="center">Frameworks</TableCell>
+                            <TableCell align="center">Platforms</TableCell>
+                            <TableCell align="center">Knowledge</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         <TableRow>
-                            <TableCell>
+                            <TableCell align='center'>
                                 {data.me.languages && (
                                     data.me.languages.map((value) => {
                                         return (<p key={value._id}>{value.language}</p>);
@@ -124,21 +124,21 @@ function FreelanceProfile() {
                                 )}
                                 
                             </TableCell>
-                            <TableCell>
+                            <TableCell align='center'>
                                 {data.me.frameworks && (
                                     data.me.frameworks.map((value) => {
                                         return (<p key={value._id}>{value.framework}</p>);
                                     })
                                 )}
                             </TableCell>
-                            <TableCell>
+                            <TableCell align='center'>
                                 {data.me.platforms && (
                                     data.me.platforms.map((value) => {
                                         return (<p key={value._id}>{value.platform}</p>);
                                     })
                                 )}
                             </TableCell>
-                            <TableCell>
+                            <TableCell align='center'>
                                 {data.me.knowledge && (
                                     data.me.knowledge.map((value, i) => {
                                         return <p>{value.knowledge}</p>
