@@ -11,6 +11,15 @@ export const ME = gql`
             languages {
                 language
             }
+            frameworks {
+                framework
+            }
+            platforms {
+                platform
+            }
+            knowledge {
+                knowledge
+            }
         }
     }
 `;
