@@ -11,7 +11,7 @@ function FreelanceProfile() {
     const itemData = [
         {
             img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
-            title: 'Breakfast',
+            title: 'Calorie Counter',
             author: '@bkristastucchio',
             rows: 2,
             cols: 2,
@@ -19,7 +19,7 @@ function FreelanceProfile() {
         },
         {
             img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
-            title: 'Burger',
+            title: 'FoodRand',
             author: '@rollelflex_graphy726',
         },
         {
@@ -117,40 +117,33 @@ function FreelanceProfile() {
                     <TableBody>
                         <TableRow>
                             <TableCell>
-                                {(() => {
-                                    if (data.me.languages) {
-                                        data.me.languages.map((value) => {
-                                            return (<p key={value._id}>{value.language}</p>);
-                                        })
-                                    }
-                                })}
+                                {data.me.languages && (
+                                    data.me.languages.map((value) => {
+                                        return (<p key={value._id}>{value.language}</p>);
+                                    })
+                                )}
+                                
                             </TableCell>
                             <TableCell>
-                                {(() => {
-                                    if (data.me.frameworks) {
-                                        data.me.frameworks.map((value) => {
-                                            return (<p key={value._id}>{value.framework}</p>);
-                                        })
-                                    }
-                                })}
+                                {data.me.frameworks && (
+                                    data.me.frameworks.map((value) => {
+                                        return (<p key={value._id}>{value.framework}</p>);
+                                    })
+                                )}
                             </TableCell>
                             <TableCell>
-                                {(() => {
-                                    if (data.me.platforms) {
-                                        data.me.platforms.map((value) => {
-                                            return (<p key={value._id}>{value.platform}</p>);
-                                        })
-                                    }
-                                })}
+                                {data.me.platforms && (
+                                    data.me.platforms.map((value) => {
+                                        return (<p key={value._id}>{value.platform}</p>);
+                                    })
+                                )}
                             </TableCell>
                             <TableCell>
-                                {(() => {
-                                    if (data.me.knowledge) {
-                                        data.me.knowledge.map((value, i) => {
-                                            return <p>{value.knowledge}</p>
-                                        })
-                                    }
-                                })}
+                                {data.me.knowledge && (
+                                    data.me.knowledge.map((value, i) => {
+                                        return <p>{value.knowledge}</p>
+                                    })
+                                )}
                             </TableCell>
                         </TableRow>
                     </TableBody>

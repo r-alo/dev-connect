@@ -2,12 +2,12 @@ import './App.css';
 import FreelanceProfile from './pages/freelanceProfile';
 import FreelanceHighlight from './pages/freelanceHighlight';
 import Signin from './pages/Signin'
-import RecruiterForm from './components/RecruiterForm';
+
 import LandingPage from './pages/LandingPage';
 import RecruiterProfile from './pages/recruiterProfile';
 import Signup from './pages/Signup';
 import NavBar from './components/navBar';
-import FreelancerForm from './components/FreelancerForm';
+
 
 // React Router
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -48,7 +48,6 @@ function App() {
             <Route path="/profile" element={<FreelanceProfile />} />
             <Route path="/recruiter" element={<RecruiterProfile />} />
             <Route path="/highlight/:id" element={ <FreelanceHighlight /> } />
-            <Route path="/freelancerForm" element={<FreelancerForm />} />
           </Routes>
         </div>
       </BrowserRouter>

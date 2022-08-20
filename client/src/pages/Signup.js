@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Grid, Paper, Button, InputLabel, Select, MenuItem, FormControl } from '@mui/material'
 import FreelancerForm from '../components/FreelancerForm';
-import RecruiterForm from '../components/RecruiterForm';
+import RecruiterForm from '../components/recruiterForm';
 
 import { Link } from 'react-router-dom';
 
@@ -41,7 +41,8 @@ export default function Signup() {
                         <MenuItem value={'recruiter'}>Recruiter</MenuItem>
                     </Select>
                 </FormControl>
-                <p>Already have an account? <Link to='/signin'>Sign In</Link></p>
+                <p>Already have an account?</p>
+                <p><Link to='/signin'>Sign In</Link></p>
             </Paper>
         </Grid>
     );
