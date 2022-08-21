@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const connection = require('./config/connection');
 const { ApolloServer } = require('apollo-server-express');
 const { typeDefs, resolvers } = require('./schema');
@@ -16,27 +17,18 @@ const server = new ApolloServer({
     context: authMiddleware,
 });
 
-mongoose
-.connect(process.env.MONGODB_CONNECTION_STRING,
-    {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    })
-    .then(() => console.log("MongoDB has beeen connected"))
-    .catch((err) => console.log(err));
-
 // middlewares
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Accessing the path module
-const path = require("path");
+// if we're in production, serve client/build as static assets
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../client/build')));
+  }
 
-// Step 1:
-app.use(express.static(path.resolve(__dirname, "./client/build")));
-// Step 2:
-app.get("*", function (request, response) {
-  response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+// serve up react front-end in production
+app.get('/', (req, res) => {
+res.sendFile(path.join(__dirname, '../../client/build/index.html'));
 });
 
 const main = async () => {

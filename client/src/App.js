@@ -15,7 +15,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // Apollo Client
 import { ApolloClient, InMemoryCache, ApolloProvider, HttpLink, ApolloLink, concat } from '@apollo/client';
 
-const httpLink = new HttpLink({ uri: 'http://localhost:3001/graphql'});
+const httpLink = new HttpLink({ uri: '/graphql'});
 const authLink = new ApolloLink((operation, forward) => {
     // add the authorization to the headers=
     operation.setContext(({ headers = {} }) => (
